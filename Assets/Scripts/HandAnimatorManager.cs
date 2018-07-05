@@ -6,7 +6,6 @@ using System;
 public class HandAnimatorManager : MonoBehaviour {
 
     public float animSpeed = 1f;
-    public Animation anim;
 
     Animator handAnimator;
 
