@@ -15,6 +15,8 @@ public class OffsetFix : MonoBehaviour
 
     NetworkClient myClient;
 
+    //HELLO WORLD
+
     public Vector3 controllerPos;
     public Quaternion controllerQuat;
     public bool calibrated = false;
