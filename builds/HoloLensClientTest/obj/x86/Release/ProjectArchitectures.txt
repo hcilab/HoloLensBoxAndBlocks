@@ -1,0 +1,2 @@
+C:\Users\ib222user\Desktop\HoloLensClient\HoloLensClientTest\builds\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\Users\ib222user\Desktop\HoloLensClient\HoloLensClientTest\builds\HoloLensClientTest\HoloLensClientTest.csproj;x86
