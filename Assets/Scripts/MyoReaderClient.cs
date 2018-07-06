@@ -27,8 +27,9 @@ public class MyoReaderClient : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        string returnedString = ListenForData();
+        Debug.Log(returnedString);
+    }
 
     void ConnectSocket()
     {
@@ -44,5 +45,15 @@ public class MyoReaderClient : MonoBehaviour {
         {
             Debug.Log("error when connecting to server socket");
         }
+    }
+
+    string ListenForData()
+    {
+        int data;
+        byte[] bytes = new byte[socketClient.ReceiveBufferSize];
+        NetworkStream stream = socketClient.GetStream();
+        data = stream.Read(bytes, 0, socketClient.ReceiveBufferSize);
+        string dataString = Encoding.UTF8.GetString(bytes, 0, data);
+        return dataString;
     }
 }
