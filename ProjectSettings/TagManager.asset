@@ -8,6 +8,7 @@ TagManager:
   - palm
   - finger
   - thumb
+  - pickup
   layers:
   - Default
   - TransparentFX

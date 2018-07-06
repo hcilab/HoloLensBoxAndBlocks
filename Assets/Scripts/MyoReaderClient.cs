@@ -28,7 +28,7 @@ public class MyoReaderClient : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         string returnedString = ListenForData();
-        Debug.Log(returnedString);
+        StringToFloats(returnedString);
     }
 
     void ConnectSocket()
@@ -55,5 +55,16 @@ public class MyoReaderClient : MonoBehaviour {
         data = stream.Read(bytes, 0, socketClient.ReceiveBufferSize);
         string dataString = Encoding.UTF8.GetString(bytes, 0, data);
         return dataString;
+    }
+
+    void StringToFloats(string inputString)
+    {
+        string[] splitReading = inputString.Split(',');
+
+        string leftSide = splitReading[0];
+        string rightSide = splitReading[1];
+
+        leftReading = Single.Parse(leftSide);
+        rightReading = Single.Parse(rightSide);
     }
 }
