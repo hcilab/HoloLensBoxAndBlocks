@@ -11,10 +11,11 @@ public class InstantiatorController : MonoBehaviour {
 
     void Start()
     {
-        for(i = 0; i < 3; i++)
+        for(i = 0; i < 10; i++)
         {
             InstantiatePrefab();
         }
+        //InstantiatePrefab();
     }
 
     private void Update()
@@ -34,8 +35,13 @@ public class InstantiatorController : MonoBehaviour {
 
     void InstantiatePrefab()
     {
-        pickupPrefabClone = Instantiate(pickupPrefab, transform.position, Quaternion.identity) as GameObject;
-        pickupPrefabClone.transform.parent = transform.parent;
+        //pickupPrefabClone = Instantiate(pickupPrefab, transform.position, Quaternion.identity) as GameObject;
+
+        var placementPos = new Vector3(Random.Range(-0.1342f,0.1342f), 0, Random.Range(-0.127f,0.127f)) + transform.position;
+        Quaternion placementRot = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
+
+        pickupPrefabClone = Instantiate(pickupPrefab, placementPos, placementRot, transform.parent) as GameObject;
+        //pickupPrefabClone.transform.parent = transform.parent;
         //pickupPrefabClone.transform.localScale = new Vector3(0.3967236f, 0.3967236f, 0.3967236f);
     }
 }
