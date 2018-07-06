@@ -26,13 +26,15 @@ public class HandAnimatorManager : MonoBehaviour {
         myoLeft = myoReaderClient.leftReading;
         myoRight = myoReaderClient.rightReading;
 
-        if (Input.GetKey("o"))
+        if (myoLeft > myoRight)
         {
+            animSpeed = myoLeft;
             HandOpen();
         }
 
-        else if (Input.GetKey("p"))
+        else if(myoLeft < myoRight)
         {
+            animSpeed = myoRight;
             HandClose();
         }
 
