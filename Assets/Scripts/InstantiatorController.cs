@@ -7,9 +7,14 @@ public class InstantiatorController : MonoBehaviour {
     public GameObject pickupPrefab; //for the actual prefab
     GameObject pickupPrefabClone; //for the clone
 
+    int i;
+
     void Start()
     {
-        InstantiatePrefab();
+        for(i = 0; i < 3; i++)
+        {
+            InstantiatePrefab();
+        }
     }
 
     private void Update()
