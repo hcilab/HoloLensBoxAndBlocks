@@ -50,7 +50,7 @@ public class HandAnimatorManager : MonoBehaviour {
 
     void HandClose()
     {
-        if (handAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        if (handAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f || !isAttached)
         {
             handAnimator.speed = 1;
             handAnimator.SetFloat("Speed", 1f * animSpeed);

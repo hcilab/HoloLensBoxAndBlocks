@@ -4,13 +4,42 @@ using UnityEngine;
 
 public class CollisionManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject hand;
+    PickUpManager pickUpManager;
+
+    // Use this for initialization
+    void Start()
+    {
+        hand = GameObject.Find("ar_hand");
+        pickUpManager = GetComponent<PickUpManager>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "finger")
+        {
+            pickUpManager.touchingFinger = true;
+        }
+        else if (other.gameObject.tag == "thumb")
+        {
+            pickUpManager.touchingThumb = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "finger")
+        {
+            pickUpManager.touchingFinger = false;
+        }
+        else if (other.gameObject.tag == "thumb")
+        {
+            pickUpManager.touchingThumb = false;
+        }
+    }
 }
