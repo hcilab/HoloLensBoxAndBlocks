@@ -8,15 +8,23 @@ public class HandAnimatorManager : MonoBehaviour {
     public float animSpeed = 1f;
     public bool isAttached = false;
 
+    private float myoLeft;
+    private float myoRight;
+
     Animator handAnimator;
+    MyoReaderClient myoReaderClient;
 
 	// Use this for initialization
 	void Start () {
         handAnimator = GetComponent<Animator>();
+        myoReaderClient = GetComponent<MyoReaderClient>();
     }
 
     // Update is called once per frame
     void Update () {
+
+        myoLeft = myoReaderClient.leftReading;
+        myoRight = myoReaderClient.rightReading;
 
         if (Input.GetKey("o"))
         {

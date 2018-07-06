@@ -15,8 +15,8 @@ public class MyoReaderClient : MonoBehaviour {
 
     private string host = "127.0.0.1";
     private int port = 12345;
-    private float leftReading;
-    private float rightReading;
+    public float leftReading;
+    public float rightReading;
 
     TcpClient socketClient;
 
