@@ -6,6 +6,7 @@ using System;
 public class HandAnimatorManager : MonoBehaviour {
 
     public float animSpeed = 1f;
+    public bool isAttached = false;
 
     Animator handAnimator;
 
