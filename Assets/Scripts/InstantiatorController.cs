@@ -14,7 +14,7 @@ public class InstantiatorController : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("r"))
         {
             ResetPrefab();
         }

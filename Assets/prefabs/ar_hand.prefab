@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 95795095212909076}
   - component: {fileID: 114198467315852512}
   m_Layer: 0
-  m_Name: vr_male_hand_left 1
+  m_Name: ar_hand
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
