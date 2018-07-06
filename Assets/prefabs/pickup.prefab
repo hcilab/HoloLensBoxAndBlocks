@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 65843056246739870}
   - component: {fileID: 23187121423720718}
   - component: {fileID: 54252844969994144}
-  - component: {fileID: 114103248629299316}
-  - component: {fileID: 114758768794618380}
+  - component: {fileID: 114790229483283528}
+  - component: {fileID: 114560832431356848}
   m_Layer: 0
   m_Name: cube_trigger
   m_TagString: Untagged
@@ -217,7 +217,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114103248629299316
+--- !u!114 &114560832431356848
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -225,15 +225,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871395039705788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec525393f64681478b10647c24f91a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 819125c860b13cd469a270173f705ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentShape: {fileID: 1252443924869734}
   hand: {fileID: 0}
-  animState: 0
-  attached: 0
-  touchingFinger: 0
-  touchingPalm: 0
 --- !u!114 &114623754183443584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5789e3821bff94c9bf978d7ec39d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114758768794618380
+--- !u!114 &114790229483283528
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -253,7 +248,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871395039705788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d10a5a9cf46bca4ca7848e5a728a804, type: 3}
+  m_Script: {fileID: 11500000, guid: b92a0acb8275885408b5ce67ba0c32f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentShape: {fileID: 1252443924869734}
   hand: {fileID: 0}
+  animState: 0
+  attached: 0
+  touchingFinger: 0
+  touchingThumb: 0
