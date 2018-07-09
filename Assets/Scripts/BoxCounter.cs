@@ -47,6 +47,7 @@ public class BoxCounter : MonoBehaviour {
         if (other.gameObject.tag == "pickup" && started && !ended)
         {
             boxCount++;
+            other.gameObject.tag = "counted";
         }
     }
 }
