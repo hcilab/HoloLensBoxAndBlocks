@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BoxCounter : MonoBehaviour {
 
+    public GameObject instantiator;
     public int boxCount;
     public Text countdown;
 
@@ -12,10 +13,13 @@ public class BoxCounter : MonoBehaviour {
     private bool started = false;
     private bool ended = false;
 
+    InstantiatorController instantiatorController;
+
     // Use this for initialization
     void Start () {
         boxCount = 0;
         countdown.text = "press 's' to start timer,\nyou have 60 seconds";
+        instantiatorController = instantiator.GetComponent<InstantiatorController>();
     }
 	
 	// Update is called once per frame
@@ -49,5 +53,7 @@ public class BoxCounter : MonoBehaviour {
             boxCount++;
             other.gameObject.tag = "counted";
         }
+
+        instantiatorController.InstantiatePrefab();
     }
 }
