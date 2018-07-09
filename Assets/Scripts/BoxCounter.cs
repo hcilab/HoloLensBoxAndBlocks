@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxCounter : MonoBehaviour {
 
-    private int boxCount;
+    public int boxCount;
 
 	// Use this for initialization
 	void Start () {
