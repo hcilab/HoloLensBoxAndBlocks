@@ -21,7 +21,6 @@ public class BoxCounter : MonoBehaviour {
         if (other.gameObject.tag == "pickup")
         {
             boxCount++;
-            Debug.Log(boxCount.ToString());
         }
     }
 }
