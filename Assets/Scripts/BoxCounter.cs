@@ -52,8 +52,9 @@ public class BoxCounter : MonoBehaviour {
         {
             boxCount++;
             other.gameObject.tag = "counted";
+            instantiatorController.InstantiatePrefab();
         }
 
-        instantiatorController.InstantiatePrefab();
+        
     }
 }

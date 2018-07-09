@@ -9,6 +9,7 @@ TagManager:
   - finger
   - thumb
   - pickup
+  - counted
   layers:
   - Default
   - TransparentFX
