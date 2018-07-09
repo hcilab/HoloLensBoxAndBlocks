@@ -9,8 +9,9 @@ public class Timer : MonoBehaviour {
 
     public Text countdown;
 
-    private float countTime = 60f;
+    private float countTime = 10f;
     private int totalCount;
+    private bool started = false;
 
     BoxCounter boxCounter;
 
@@ -22,17 +23,26 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        countTime -= Time.deltaTime;
 
-        if (countTime > 0)
+        if (Input.GetKeyDown("s"))
         {
-            countdown.text = countTime.ToString();
+            started = true;
         }
 
-        else
+        if (started)
         {
-            totalCount = boxCounter.boxCount;
-            countdown.text = "Times up! you successfully transferred " + totalCount + " blocks.";
+            countTime -= Time.deltaTime;
+
+            if (countTime > 0)
+            {
+                countdown.text = countTime.ToString();
+            }
+
+            else
+            {
+                totalCount = boxCounter.boxCount;
+                countdown.text = "Times up! you successfully transferred " + totalCount + " blocks.";
+            }
         }
     }
 }
