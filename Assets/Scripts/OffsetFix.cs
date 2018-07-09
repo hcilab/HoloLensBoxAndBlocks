@@ -47,7 +47,7 @@ public class OffsetFix : MonoBehaviour
         if (calibrated)
         {
             transform.localPosition = controllerPos + posOffset;
-            transform.localRotation = controllerQuat * rotOffset;
+            transform.localRotation = controllerQuat; //* rotOffset;
         }
     }
 
