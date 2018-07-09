@@ -8,8 +8,7 @@ public class BoxCounter : MonoBehaviour {
     public int boxCount;
     public Text countdown;
 
-    private float countTime = 10f;
-    private int totalCount;
+    private float countTime = 20f;
     private bool started = false;
     private bool ended = false;
 
@@ -37,7 +36,7 @@ public class BoxCounter : MonoBehaviour {
 
             else
             {
-                countdown.text = "Times up! you successfully transferred " + totalCount + " blocks.";
+                countdown.text = "Times up! you successfully transferred " + boxCount + " blocks.";
                 ended = true;
             }
         }
