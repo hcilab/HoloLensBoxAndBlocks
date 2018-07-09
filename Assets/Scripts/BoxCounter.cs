@@ -9,7 +9,7 @@ public class BoxCounter : MonoBehaviour {
     public int boxCount;
     public Text countdown;
 
-    private float countTime = 20f;
+    private float countTime = 60f;
     private bool started = false;
     private bool ended = false;
 
