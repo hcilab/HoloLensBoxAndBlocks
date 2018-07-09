@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour {
     private float countTime = 10f;
     private int totalCount;
     private bool started = false;
+    private bool ended = false;
 
     BoxCounter boxCounter;
 
@@ -29,7 +30,7 @@ public class Timer : MonoBehaviour {
             started = true;
         }
 
-        if (started)
+        if (started && !ended)
         {
             countTime -= Time.deltaTime;
 
@@ -42,6 +43,7 @@ public class Timer : MonoBehaviour {
             {
                 totalCount = boxCounter.boxCount;
                 countdown.text = "Times up! you successfully transferred " + totalCount + " blocks.";
+                ended = false;
             }
         }
     }

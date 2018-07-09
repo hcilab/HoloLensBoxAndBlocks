@@ -1,24 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoxCounter : MonoBehaviour {
 
     public int boxCount;
+    public Text countdown;
 
-	// Use this for initialization
-	void Start () {
+    private float countTime = 10f;
+    private int totalCount;
+    private bool started = false;
+    private bool ended = false;
+
+    // Use this for initialization
+    void Start () {
         boxCount = 0;
-	}
+        countdown.text = "press 's' to start timer,\nyou have 60 seconds";
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKeyDown("s"))
+        {
+            started = true;
+        }
+
+        if (started && !ended)
+        {
+            countTime -= Time.deltaTime;
+
+            if (countTime > 0)
+            {
+                countdown.text = countTime.ToString();
+            }
+
+            else
+            {
+                countdown.text = "Times up! you successfully transferred " + totalCount + " blocks.";
+                ended = true;
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "pickup")
+        if (other.gameObject.tag == "pickup" && started && !ended)
         {
             boxCount++;
         }
