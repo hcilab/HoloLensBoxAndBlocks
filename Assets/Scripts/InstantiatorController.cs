@@ -35,13 +35,31 @@ public class InstantiatorController : MonoBehaviour {
 
     public void InstantiatePrefab()
     {
-        //pickupPrefabClone = Instantiate(pickupPrefab, transform.position, Quaternion.identity) as GameObject;
-
+        int colourCase;
         var placementPos = new Vector3(Random.Range(-0.12f,0.12f), 0, Random.Range(-0.11f,0.11f)) + transform.position;
         Quaternion placementRot = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
 
         pickupPrefabClone = Instantiate(pickupPrefab, placementPos, placementRot, transform.parent) as GameObject;
-        //pickupPrefabClone.transform.parent = transform.parent;
-        //pickupPrefabClone.transform.localScale = new Vector3(0.3967236f, 0.3967236f, 0.3967236f);
+
+        colourCase = Random.Range(1, 4);
+
+        switch (colourCase)
+        {
+            case 1:
+                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.red;
+                break;
+            case 2:
+                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                break;
+            case 3:
+                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.blue;
+                break;
+            case 4:
+                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.green;
+                break;
+            default:
+                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.red;
+                break;
+        }
     }
 }
