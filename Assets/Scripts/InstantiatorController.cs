@@ -5,17 +5,17 @@ using UnityEngine;
 public class InstantiatorController : MonoBehaviour {
 
     public GameObject pickupPrefab; //for the actual prefab
-    GameObject pickupPrefabClone; //for the clone
+    public int amountBlocks = 30;
 
+    GameObject pickupPrefabClone; //for the clone
     int i;
 
     void Start()
     {
-        for(i = 0; i < 10; i++)
+        for(i = 0; i < amountBlocks; i++)
         {
             InstantiatePrefab();
         }
-        //InstantiatePrefab();
     }
 
     private void Update()
@@ -41,7 +41,9 @@ public class InstantiatorController : MonoBehaviour {
 
         pickupPrefabClone = Instantiate(pickupPrefab, placementPos, placementRot, transform.parent) as GameObject;
 
-        colourCase = Random.Range(1, 4);
+        colourCase = Random.Range(1, 5);
+
+        Debug.Log(colourCase);
 
         switch (colourCase)
         {
@@ -58,7 +60,7 @@ public class InstantiatorController : MonoBehaviour {
                 pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.green;
                 break;
             default:
-                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.red;
+                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.white;
                 break;
         }
     }
