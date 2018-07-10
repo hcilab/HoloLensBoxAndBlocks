@@ -45,7 +45,7 @@ public class PickUpManager : MonoBehaviour {
         }
     }
 
-    private bool IsPickedUp()
+    public bool IsPickedUp()
     {
         return (touchingFinger && touchingThumb);
     }

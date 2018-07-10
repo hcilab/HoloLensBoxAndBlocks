@@ -31,7 +31,7 @@ public class CollisionManager : MonoBehaviour {
             pickUpManager.touchingThumb = true;
         }
 
-        else if (other.gameObject.tag == "wall")
+        else if (other.gameObject.tag == "wall" && pickUpManager.IsPickedUp())
         {
             pickUpManager.touchingFinger = false;
             pickUpManager.touchingThumb = false;
