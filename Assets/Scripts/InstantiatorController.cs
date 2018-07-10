@@ -36,7 +36,7 @@ public class InstantiatorController : MonoBehaviour {
     public void InstantiatePrefab()
     {
         int colourCase;
-        var placementPos = new Vector3(Random.Range(-0.12f,0.12f), 0, Random.Range(-0.11f,0.11f)) + transform.position;
+        var placementPos = new Vector3(Random.Range(-0.12f,0.12f), Random.Range(0f, 0.075f), Random.Range(-0.11f,0.11f)) + transform.position;
         Quaternion placementRot = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
 
         pickupPrefabClone = Instantiate(pickupPrefab, placementPos, placementRot, transform.parent) as GameObject;
