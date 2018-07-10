@@ -43,8 +43,6 @@ public class InstantiatorController : MonoBehaviour {
 
         colourCase = Random.Range(1, 5);
 
-        Debug.Log(colourCase);
-
         switch (colourCase)
         {
             case 1:
