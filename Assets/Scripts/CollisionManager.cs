@@ -31,7 +31,7 @@ public class CollisionManager : MonoBehaviour {
             pickUpManager.touchingThumb = true;
         }
 
-        else if (other.gameObject.name == "PartitionTrigger")
+        else if (other.gameObject.tag == "wall")
         {
             pickUpManager.touchingFinger = false;
             pickUpManager.touchingThumb = false;
