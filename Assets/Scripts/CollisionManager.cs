@@ -30,6 +30,12 @@ public class CollisionManager : MonoBehaviour {
         {
             pickUpManager.touchingThumb = true;
         }
+
+        else if (other.gameObject.name == "PartitionTrigger")
+        {
+            pickUpManager.touchingFinger = false;
+            pickUpManager.touchingThumb = false;
+        }
     }
     void OnTriggerExit(Collider other)
     {

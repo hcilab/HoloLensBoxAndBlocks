@@ -13,4 +13,13 @@ public class PartitionCollider : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "cube_trigger")
+        {
+            //if is picked up, drop it.
+            //drop();
+        }
+    }
 }
