@@ -16,11 +16,11 @@ public class VoiceManager : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 
-
+        offsetFix = controller.GetComponent<OffsetFix>();
 
         keywords.Add("align", () =>
         {
-            //OffsetFix.AlignAxes();
+            offsetFix.AlignAxes();
         });
 
         //create the keyword recognizer and tell it what to recognize

@@ -47,7 +47,7 @@ public class OffsetFix : MonoBehaviour
         if (calibrated)
         {
             transform.localPosition = controllerPos + posOffset;
-            transform.localRotation = controllerQuat; //* rotOffset;
+            transform.localRotation = controllerQuat;
         }
     }
 
@@ -103,7 +103,7 @@ public class OffsetFix : MonoBehaviour
         controllerQuat.Set(-xQuat, -yQuat, zQuat, wQuat);
     }
 
-    void AlignAxes() {
+    public void AlignAxes() {
         if (!calibrated)
         {
             yOffset = controllerQuat.eulerAngles.y;
