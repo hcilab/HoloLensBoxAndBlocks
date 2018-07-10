@@ -18,9 +18,10 @@ public class VoiceManager : MonoBehaviour {
 
         offsetFix = controller.GetComponent<OffsetFix>();
 
-        keywords.Add("align", () =>
+        keywords.Add("start", () =>
         {
             offsetFix.AlignAxes();
+            Debug.Log("you said start");
         });
 
         //create the keyword recognizer and tell it what to recognize
