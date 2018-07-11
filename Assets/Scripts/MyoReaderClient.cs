@@ -10,19 +10,29 @@ using System.Net;
 using System.Text;
 using System;
 
+#if !UNITY_EDITOR
+using System.Threading.Tasks;
+#endif
+
 public class MyoReaderClient : MonoBehaviour {
 
+#if !UNITY_EDITOR
+    private Windows.Networking.Sockets.StreamSocket socket;
+#endif
 
     private string host = "127.0.0.1";
+    private string ipAddress = "131.202.243.56";
     private int port = 12345;
+    private string portUWP = "12345";
     public float leftReading;
     public float rightReading;
 
+    private StreamReader reader;
     TcpClient socketClient;
 
     // Use this for initialization
     void Start () {
-        ConnectSocket();
+        ConnectSocketUnity();
     }
 	
 	// Update is called once per frame
@@ -31,7 +41,7 @@ public class MyoReaderClient : MonoBehaviour {
         StringToFloats(returnedString);
     }
 
-    void ConnectSocket()
+    void ConnectSocketUnity()
     {
         IPAddress ipAddress = IPAddress.Parse(host);
 
