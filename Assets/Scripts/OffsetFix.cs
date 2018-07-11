@@ -37,7 +37,7 @@ public class OffsetFix : MonoBehaviour
     private float yOffset;
     private Quaternion rotOffset;
     private StreamReader reader;
-    private string returnedString = null;
+    private string returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
 
 #if UNITY_EDITOR
     TcpClient socketClient;
@@ -56,14 +56,16 @@ public class OffsetFix : MonoBehaviour
     {
 #if !UNITY_EDITOR
         if (connection){
-            returnedString = ListenForDataUWP();
+            ListenForDataUWP();
+            //returnedString = ListenForDataUWP();
         }
 
         else {
             returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
         }
 #else
-        returnedString = ListenForDataUnity();
+        ListenForDataUnity();
+        //returnedString = ListenForDataUnity();
 #endif
         StringToCoordinates(returnedString);
 
@@ -119,29 +121,32 @@ public class OffsetFix : MonoBehaviour
 #endif
 
 #if UNITY_EDITOR
-    string ListenForDataUnity()
+    void ListenForDataUnity()
     {
         int data;
         byte[] bytes = new byte[socketClient.ReceiveBufferSize];
         NetworkStream stream = socketClient.GetStream();
         data = stream.Read(bytes, 0, socketClient.ReceiveBufferSize);
-        string dataString = Encoding.UTF8.GetString(bytes, 0, data);
-        return dataString;
+        //string dataString = Encoding.UTF8.GetString(bytes, 0, data);
+        //return dataString;
+        returnedString = Encoding.UTF8.GetString(bytes, 0, data);
     }
 #endif
 
 #if !UNITY_EDITOR
-    private string ListenForDataUWP()
+    private async void ListenForDataUWP()
     {
         try
         {
-            string dataString = reader.ReadLine();
-            return dataString;
+            returnedString = reader.ReadLine();
+            //string dataString = reader.ReadLine();
+            //return dataString;
         }
 
         catch (Exception e)
         {
-            return "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
+            //return "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
+            returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
         }
     }
 #endif
