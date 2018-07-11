@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 
 public class OffsetFix : MonoBehaviour
 {
+#if !UNITY_EDITOR
+    private Windows.Networking.Sockets.StreamSocket socket;
+#endif
 
     NetworkClient myClient;
 
@@ -26,16 +29,24 @@ public class OffsetFix : MonoBehaviour
     public GameObject parentObject;
 
     private string host = "127.0.0.1";
+    private string ipAddress = "131.202.243.56";
+    private string portUWP = "5555";
+    private bool connection = false;
     private int port = 5555;
     private Vector3 posOffset;
     private float yOffset;
     private Quaternion rotOffset;
+    private StreamReader reader;
 
     TcpClient socketClient;
 
     void Start()
     {
+#if !UNITY_EDITOR
+        ConnectSocketUWP();
+#else
         ConnectSocketUnity();
+#endif
     }
 
     private void Update()
