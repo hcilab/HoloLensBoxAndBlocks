@@ -117,7 +117,7 @@ public class MyoReaderClient : MonoBehaviour {
     {
         try
         {
-            returnedString = reader.ReadLine();
+            returnedString = await reader.ReadLineAsync();
             //string dataString = reader.ReadLine();
             //return dataString;
         }
