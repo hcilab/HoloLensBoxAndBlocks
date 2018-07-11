@@ -49,7 +49,7 @@ public class MyoReaderClient : MonoBehaviour {
         }
 
         else {
-            string returnedString = "0.0000 0.0000 0.0";
+            string returnedString = "0.0000,0.0000,0.0";
         }
 #else
         string returnedString = ListenForDataUnity();
@@ -57,6 +57,7 @@ public class MyoReaderClient : MonoBehaviour {
         StringToFloats(returnedString);
     }
 
+#if UNITY_EDITOR
     void ConnectSocketUnity()
     {
         IPAddress ipAddress = IPAddress.Parse(host);
@@ -72,7 +73,28 @@ public class MyoReaderClient : MonoBehaviour {
             Debug.Log("error when connecting to server socket");
         }
     }
+#else
+    private async void ConnectSocketUWP()
+    {
+        try
+        {
+            socket = new Windows.Networking.Sockets.StreamSocket();
+            Windows.Networking.HostName serverHost = new Windows.Networking.HostName(ipAddress);
+            await socket.ConnectAsync(serverHost, portUWP);
 
+            Stream streamIn = socket.InputStream.AsStreamForRead();
+            reader = new StreamReader(streamIn, Encoding.UTF8);
+            connection = true;
+        }
+
+        catch (Exception e)
+        {
+            //do something
+        }
+    }
+#endif
+
+#if UNITY_EDITOR
     string ListenForDataUnity()
     {
         int data;
@@ -82,6 +104,21 @@ public class MyoReaderClient : MonoBehaviour {
         string dataString = Encoding.UTF8.GetString(bytes, 0, data);
         return dataString;
     }
+#else
+    private string ListenForDataUWP()
+    {
+        try
+        {
+            string dataString = reader.ReadLine();
+            return dataString;
+        }
+
+        catch (Exception e)
+        {
+            return "0.0000,0.0000,0.0";
+        }
+    }
+#endif
 
     void StringToFloats(string inputString)
     {
