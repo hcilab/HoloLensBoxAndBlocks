@@ -115,6 +115,7 @@ public class OffsetFix : MonoBehaviour
     }
 #endif
 
+#if UNITY_EDITOR
     string ListenForDataUnity()
     {
         int data;
@@ -124,6 +125,23 @@ public class OffsetFix : MonoBehaviour
         string dataString = Encoding.UTF8.GetString(bytes, 0, data);
         return dataString;
     }
+#endif
+
+#if !UNITY_EDITOR
+    private string ListenForDataUWP()
+    {
+        try
+        {
+            string dataString = reader.ReadLine();
+            return dataString;
+        }
+
+        catch (Exception e)
+        {
+            return "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
+        }
+    }
+#endif
 
     void StringToCoordinates(string inputString)
     {
