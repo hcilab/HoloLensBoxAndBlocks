@@ -26,18 +26,34 @@ public class MyoReaderClient : MonoBehaviour {
     private string portUWP = "12345";
     public float leftReading;
     public float rightReading;
+    public bool connection = false;
 
     private StreamReader reader;
     TcpClient socketClient;
 
     // Use this for initialization
     void Start () {
+#if !UNITY_EDITOR
+        ConnectSocketUWP();
+#else
         ConnectSocketUnity();
+#endif
     }
-	
-	// Update is called once per frame
-	void Update () {
-        string returnedString = ListenForData();
+
+    // Update is called once per frame
+    void Update () {
+
+#if !UNITY_EDITOR
+        if (connection){
+            string returnedString = ListenForDataUWP();
+        }
+
+        else {
+            string returnedString = "0.0000 0.0000 0.0";
+        }
+#else
+        string returnedString = ListenForDataUnity();
+#endif
         StringToFloats(returnedString);
     }
 
@@ -57,7 +73,7 @@ public class MyoReaderClient : MonoBehaviour {
         }
     }
 
-    string ListenForData()
+    string ListenForDataUnity()
     {
         int data;
         byte[] bytes = new byte[socketClient.ReceiveBufferSize];
