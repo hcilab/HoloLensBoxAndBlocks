@@ -10,6 +10,10 @@ using System.Net;
 using System.Text;
 using System;
 
+#if !UNITY_EDITOR
+using System.Threading.Tasks;
+#endif
+
 public class OffsetFix : MonoBehaviour
 {
 
@@ -31,12 +35,12 @@ public class OffsetFix : MonoBehaviour
 
     void Start()
     {
-        ConnectSocket();
+        ConnectSocketUnity();
     }
 
     private void Update()
     {
-        string returnedString = ListenForData();
+        string returnedString = ListenForDataUnity();
         StringToCoordinates(returnedString);
 
         if (Input.GetKeyDown("space"))
@@ -52,7 +56,7 @@ public class OffsetFix : MonoBehaviour
     }
 
 
-    void ConnectSocket()
+    void ConnectSocketUnity()
     {
         IPAddress ipAddress = IPAddress.Parse(host);
 
@@ -68,7 +72,7 @@ public class OffsetFix : MonoBehaviour
         }
     }
 
-    string ListenForData()
+    string ListenForDataUnity()
     {
         int data;
         byte[] bytes = new byte[socketClient.ReceiveBufferSize];
