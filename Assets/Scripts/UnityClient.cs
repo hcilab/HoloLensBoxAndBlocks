@@ -11,6 +11,7 @@ using System.Text;
 using System;
 
 public class UnityClient : MonoBehaviour {
+#if UNITY_EDITOR
 
     NetworkClient myClient;
 
@@ -91,5 +92,5 @@ public class UnityClient : MonoBehaviour {
         controllerQuat = new Quaternion();
         controllerQuat.Set(-xQuat, -yQuat, zQuat, wQuat);
     }
-
+#endif
 }
