@@ -51,7 +51,17 @@ public class OffsetFix : MonoBehaviour
 
     private void Update()
     {
+#if !UNITY_EDITOR
+        if (connection){
+            string returnedString = ListenForDataUWP();
+        }
+
+        else {
+            string returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
+        }
+#else
         string returnedString = ListenForDataUnity();
+#endif
         StringToCoordinates(returnedString);
 
         if (Input.GetKeyDown("space"))
@@ -66,7 +76,7 @@ public class OffsetFix : MonoBehaviour
         }
     }
 
-
+#if UNITY_EDITOR
     void ConnectSocketUnity()
     {
         IPAddress ipAddress = IPAddress.Parse(host);
@@ -82,6 +92,28 @@ public class OffsetFix : MonoBehaviour
             Debug.Log("error when connecting to server socket");
         }
     }
+#endif
+
+#if !UNITY_EDITOR
+    private async void ConnectSocketUWP()
+    {
+        try
+        {
+            socket = new Windows.Networking.Sockets.StreamSocket();
+            Windows.Networking.HostName serverHost = new Windows.Networking.HostName(ipAddress);
+            await socket.ConnectAsync(serverHost, portUWP);
+
+            Stream streamIn = socket.InputStream.AsStreamForRead();
+            reader = new StreamReader(streamIn, Encoding.UTF8);
+            connection = true;
+        }
+
+        catch (Exception e)
+        {
+            //do something
+        }
+    }
+#endif
 
     string ListenForDataUnity()
     {
