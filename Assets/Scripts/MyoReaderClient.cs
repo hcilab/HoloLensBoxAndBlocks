@@ -29,6 +29,7 @@ public class MyoReaderClient : MonoBehaviour {
     public bool connection = false;
 
     private StreamReader reader;
+    private string returnedString = null;
 
 #if UNITY_EDITOR
     TcpClient socketClient;
@@ -48,14 +49,14 @@ public class MyoReaderClient : MonoBehaviour {
 
 #if !UNITY_EDITOR
         if (connection){
-            string returnedString = ListenForDataUWP();
+            returnedString = ListenForDataUWP();
         }
 
         else {
-            string returnedString = "0.0000,0.0000,0.0";
+            returnedString = "0.0000,0.0000,0.0";
         }
 #else
-        string returnedString = ListenForDataUnity();
+        returnedString = ListenForDataUnity();
 #endif
         StringToFloats(returnedString);
     }

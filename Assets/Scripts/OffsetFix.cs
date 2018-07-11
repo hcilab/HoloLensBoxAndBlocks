@@ -37,6 +37,7 @@ public class OffsetFix : MonoBehaviour
     private float yOffset;
     private Quaternion rotOffset;
     private StreamReader reader;
+    private string returnedString = null;
 
 #if UNITY_EDITOR
     TcpClient socketClient;
@@ -55,14 +56,14 @@ public class OffsetFix : MonoBehaviour
     {
 #if !UNITY_EDITOR
         if (connection){
-            string returnedString = ListenForDataUWP();
+            returnedString = ListenForDataUWP();
         }
 
         else {
-            string returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
+            returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
         }
 #else
-        string returnedString = ListenForDataUnity();
+        returnedString = ListenForDataUnity();
 #endif
         StringToCoordinates(returnedString);
 
