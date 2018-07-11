@@ -38,7 +38,9 @@ public class OffsetFix : MonoBehaviour
     private Quaternion rotOffset;
     private StreamReader reader;
 
+#if UNITY_EDITOR
     TcpClient socketClient;
+#endif
 
     void Start()
     {

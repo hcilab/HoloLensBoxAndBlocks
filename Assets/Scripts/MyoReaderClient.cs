@@ -29,7 +29,10 @@ public class MyoReaderClient : MonoBehaviour {
     public bool connection = false;
 
     private StreamReader reader;
+
+#if UNITY_EDITOR
     TcpClient socketClient;
+#endif
 
     // Use this for initialization
     void Start () {
