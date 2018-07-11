@@ -7,8 +7,10 @@ using System.Linq;
 public class VoiceManager : MonoBehaviour {
 
     public GameObject controller;
+    public GameObject counter;
 
     OffsetFix offsetFix;
+    BoxCounter boxCounter;
 
     KeywordRecognizer keywordRecognizer;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
@@ -17,11 +19,16 @@ public class VoiceManager : MonoBehaviour {
 	void Start () {
 
         offsetFix = controller.GetComponent<OffsetFix>();
+        boxCounter = counter.GetComponent<BoxCounter>();
+
+        keywords.Add("align", () =>
+        {
+            offsetFix.AlignAxes();
+        });
 
         keywords.Add("start", () =>
         {
-            offsetFix.AlignAxes();
-            Debug.Log("you said start");
+            boxCounter.started = true;
         });
 
         //create the keyword recognizer and tell it what to recognize

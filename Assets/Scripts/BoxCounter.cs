@@ -10,7 +10,7 @@ public class BoxCounter : MonoBehaviour {
     public Text countdown;
 
     private float countTime = 60f;
-    private bool started = false;
+    public bool started = false;
     private bool ended = false;
 
     InstantiatorController instantiatorController;
