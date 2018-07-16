@@ -106,7 +106,7 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
     {
         if (SpatialUnderstanding.Instance.ScanState != SpatialUnderstanding.ScanStates.Done)
         {
-            this.InstructionTextMesh.text = "Requested Finish Scan";
+            //this.InstructionTextMesh.text = "Requested Finish Scan";
 
             SpatialUnderstanding.Instance.RequestFinishScan();
         }
