@@ -79,10 +79,10 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
             case SpatialUnderstanding.ScanStates.ReadyToScan:
                 break;
             case SpatialUnderstanding.ScanStates.Scanning:
-                InstructionTextMesh.text = "Scanning in progress.\nWhen ready, tap anywhere to finish scan.";
+                //InstructionTextMesh.text = "Scanning in progress.\nWhen ready, tap anywhere to finish scan.";
                 break;
             case SpatialUnderstanding.ScanStates.Finishing:
-                this.InstructionTextMesh.text = "State: Finishing Scan";
+                //this.InstructionTextMesh.text = "State: Finishing Scan";
                 break;
             case SpatialUnderstanding.ScanStates.Done:
                 //InstructionTextMesh.text = "State: Scan Finished\nTap a sphere to place box and blocks test";
