@@ -85,7 +85,7 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
                 this.InstructionTextMesh.text = "State: Finishing Scan";
                 break;
             case SpatialUnderstanding.ScanStates.Done:
-                this.InstructionTextMesh.text = "State: Scan Finished\nTap a sphere to place box and blocks test";
+                //InstructionTextMesh.text = "State: Scan Finished\nTap a sphere to place box and blocks test";
                 break;
             default:
                 break;

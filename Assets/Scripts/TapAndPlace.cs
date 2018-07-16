@@ -6,6 +6,7 @@ using HoloToolkit.Unity.InputModule;
 public class TapAndPlace : MonoBehaviour, IInputClickHandler
 {
     public GameObject BoxAndBlocks;
+    public TextMesh InstructionTextMesh;
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
@@ -13,6 +14,7 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
         Quaternion rotation = Quaternion.Euler(0, yCamRot, 0);
         Instantiate(BoxAndBlocks, transform.parent.position, rotation);
         DestroyAllPlaceableMarkers();
+        InstructionTextMesh.text = null;
     }
 
     private void DestroyAllPlaceableMarkers()
@@ -26,7 +28,7 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
 
     // Use this for initialization
     void Start () {
-		
+        InstructionTextMesh.text = "Tap a sphere to place Box and Blocks set up.";
 	}
 	
 	// Update is called once per frame
