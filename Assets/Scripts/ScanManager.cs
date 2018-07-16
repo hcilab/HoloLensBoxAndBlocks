@@ -7,7 +7,7 @@ using HoloToolkit.Unity;
 
 public class ScanManager : MonoBehaviour, IInputClickHandler
 {
-    public TextMesh InstructionTextMesh;
+    //public TextMesh InstructionTextMesh;
     public GameObject PlaceablePrefab;
 
     // Use this for initialization
@@ -98,7 +98,7 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
         if (SpatialUnderstandingDll.Imports.QueryPlayspaceStats(statsPtr) != 0)
         {
             var stats = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceStats();
-            this.InstructionTextMesh.text = string.Format("TotalSurfaceArea: {0:0.##}\nWallSurfaceArea: {1:0.##}\nHorizSurfaceArea: {2:0.##}\nWhen ready, tap anywhere to finish scan.", stats.TotalSurfaceArea, stats.WallSurfaceArea, stats.HorizSurfaceArea);
+            //this.InstructionTextMesh.text = string.Format("TotalSurfaceArea: {0:0.##}\nWallSurfaceArea: {1:0.##}\nHorizSurfaceArea: {2:0.##}\nWhen ready, tap anywhere to finish scan.", stats.TotalSurfaceArea, stats.WallSurfaceArea, stats.HorizSurfaceArea);
         }
     }
 
