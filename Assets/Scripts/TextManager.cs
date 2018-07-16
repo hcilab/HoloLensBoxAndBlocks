@@ -12,7 +12,7 @@ public class TextManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameState = GameState.ReadyToScan;
+        gameState = GameState.RoomScan;
     }
 
     // Update is called once per frame
