@@ -11,6 +11,7 @@ TagManager:
   - pickup
   - counted
   - wall
+  - placeable
   layers:
   - Default
   - TransparentFX
