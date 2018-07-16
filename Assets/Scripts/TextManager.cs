@@ -6,17 +6,37 @@ using HoloToolkit.Unity;
 public class TextManager : MonoBehaviour {
 
     public TextMesh InstructionTextMesh;
+    public GameState gameState;
 
-    GameState gameState;
     private bool scanDone = false;
 
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        gameState = GameState.ReadyToScan;
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+        switch (gameState)
+        {
+            case GameState.ReadyToScan:
+                ScanText();
+                break;
+        }
+
+        if (scanDone)
+        {
+            TextAfterScan();
+        }
+    }
+
+    private void TextAfterScan()
+    {
+    }
+
+    private void ScanText()
+    {
         switch (SpatialUnderstanding.Instance.ScanState)
         {
             case SpatialUnderstanding.ScanStates.None:
@@ -30,22 +50,12 @@ public class TextManager : MonoBehaviour {
                 this.InstructionTextMesh.text = "State: Finishing Scan";
                 break;
             case SpatialUnderstanding.ScanStates.Done:
-                scanDone = true;
+                gameState = GameState.DoneScan;
                 break;
             default:
                 break;
         }
-
-        if (scanDone)
-        {
-            TextAfterScan();
-        }
-    }
-
-    private void TextAfterScan()
-    {
-
     }
 }
 
-public enum GameState {StartMenu, ReadyToScan, Scanning, FinishingScan, DoneScan, WaitingForArmAlignment, WaitingForTimerStart, TestStarted, TestEnded}; 
+public enum GameState {StartMenu, ReadyToScan, DoneScan, WaitingForArmAlignment, WaitingForTimerStart, TestStarted, TestEnded}; 
