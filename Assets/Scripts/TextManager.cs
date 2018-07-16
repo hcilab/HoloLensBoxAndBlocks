@@ -26,6 +26,11 @@ public class TextManager : MonoBehaviour {
             case GameState.DoneScan:
                 InstructionTextMesh.text = "Scan done.\nSelect a sphere to place box and blocks test.";
                 break;
+            case GameState.BoxPlaced:
+                //enable other game objects now
+                EnableObjectsForTest();
+                InstructionTextMesh.text = "align controller with hologram and say 'align'";
+                break;
         }
 
         if (scanDone)
@@ -59,6 +64,11 @@ public class TextManager : MonoBehaviour {
                 break;
         }
     }
+
+    private void EnableObjectsForTest()
+    {
+
+    }
 }
 
-public enum GameState {StartMenu, RoomScan, DoneScan, WaitingForArmAlignment, WaitingForTimerStart, TestStarted, TestEnded}; 
+public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, WaitingForArmAlignment, WaitingForTimerStart, TestStarted, TestEnded}; 
