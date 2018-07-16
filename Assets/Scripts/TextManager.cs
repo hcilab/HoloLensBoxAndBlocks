@@ -7,12 +7,20 @@ public class TextManager : MonoBehaviour {
 
     public TextMesh InstructionTextMesh;
     public GameState gameState;
+    public GameObject canvas;
+    public GameObject viveAxes;
+    public GameObject controllerVive;
+    public GameObject voiceInput;
+    public GameObject spatialUnderstanding;
+
+    SpatialUnderstandingCustomMesh customMesh;
 
     private bool scanDone = false;
 
     // Use this for initialization
     void Start () {
         gameState = GameState.RoomScan;
+        customMesh = spatialUnderstanding.GetComponent<SpatialUnderstandingCustomMesh>();
     }
 
     // Update is called once per frame
@@ -30,17 +38,9 @@ public class TextManager : MonoBehaviour {
                 //enable other game objects now
                 EnableObjectsForTest();
                 InstructionTextMesh.text = "align controller with hologram and say 'align'";
+                customMesh.enabled = false;
                 break;
         }
-
-        if (scanDone)
-        {
-            TextAfterScan();
-        }
-    }
-
-    private void TextAfterScan()
-    {
     }
 
     private void ScanText()
@@ -67,7 +67,10 @@ public class TextManager : MonoBehaviour {
 
     private void EnableObjectsForTest()
     {
-
+        canvas.SetActive(true);
+        viveAxes.SetActive(true);
+        controllerVive.SetActive(true);
+        voiceInput.SetActive(true);
     }
 }
 
