@@ -20,8 +20,11 @@ public class TextManager : MonoBehaviour {
 
         switch (gameState)
         {
-            case GameState.ReadyToScan:
+            case GameState.RoomScan:
                 ScanText();
+                break;
+            case GameState.DoneScan:
+                InstructionTextMesh.text = "Scan done.\nSelect a sphere to place box and blocks test.";
                 break;
         }
 
@@ -58,4 +61,4 @@ public class TextManager : MonoBehaviour {
     }
 }
 
-public enum GameState {StartMenu, ReadyToScan, DoneScan, WaitingForArmAlignment, WaitingForTimerStart, TestStarted, TestEnded}; 
+public enum GameState {StartMenu, RoomScan, DoneScan, WaitingForArmAlignment, WaitingForTimerStart, TestStarted, TestEnded}; 
