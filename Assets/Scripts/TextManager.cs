@@ -38,7 +38,8 @@ public class TextManager : MonoBehaviour {
                 //enable other game objects now
                 EnableObjectsForTest();
                 InstructionTextMesh.text = "align controller with hologram and say 'align'";
-                customMesh.enabled = false;
+                spatialUnderstanding.SetActive(false);
+                //customMesh.enabled = false;
                 break;
         }
     }
