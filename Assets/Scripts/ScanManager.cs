@@ -79,7 +79,7 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
             case SpatialUnderstanding.ScanStates.ReadyToScan:
                 break;
             case SpatialUnderstanding.ScanStates.Scanning:
-                this.LogSurfaceState();
+                InstructionTextMesh.text = "Scanning in progress.\nWhen ready, tap anywhere to finish scan.";
                 break;
             case SpatialUnderstanding.ScanStates.Finishing:
                 this.InstructionTextMesh.text = "State: Finishing Scan";
