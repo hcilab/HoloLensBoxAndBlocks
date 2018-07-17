@@ -27,6 +27,7 @@ public class OffsetFix : MonoBehaviour
     public bool calibrated = false;
 
     public GameObject parentObject;
+    public GameObject boxAndBlocks;
 
     private string host = "127.0.0.1";
     private string ipAddress = "131.202.243.56";
@@ -50,6 +51,8 @@ public class OffsetFix : MonoBehaviour
 #else
         ConnectSocketUnity();
 #endif
+        //find box and blocks and spawn hand near that, like 35 cm above
+
     }
 
     private void Update()
