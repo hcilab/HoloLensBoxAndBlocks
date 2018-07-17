@@ -18,8 +18,6 @@ public class BoxCounter : MonoBehaviour {
     // Use this for initialization
     void Start () {
         boxCount = 0;
-        countdown.text = "press 's' to start timer,\nyou have 60 seconds";
-        instantiatorController = instantiator.GetComponent<InstantiatorController>();
     }
 	
 	// Update is called once per frame
@@ -35,12 +33,10 @@ public class BoxCounter : MonoBehaviour {
 
             if (countTime > 0)
             {
-                countdown.text = countTime.ToString();
             }
 
             else
             {
-                countdown.text = "Times up! you successfully transferred " + boxCount + " blocks.";
                 ended = true;
             }
         }
