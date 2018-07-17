@@ -42,6 +42,8 @@ public class TextManager : MonoBehaviour {
             case GameState.BoxPlaced:
                 //enable other game objects now
                 EnableObjectsForTest();
+                break;
+            case GameState.AlignArm:
                 InstructionTextMesh.text = "align controller with hologram and say 'align'";
                 spatialUnderstanding.SetActive(false); //get rid of scan mesh
                 break;
@@ -96,10 +98,15 @@ public class TextManager : MonoBehaviour {
 
     private void EnableObjectsForTest()
     {
-        viveAxes.SetActive(true);
-        controllerVive.SetActive(true);
-        voiceInput.SetActive(true);
+        if(GameObject.Find("BoxAndBlocks(Clone)") != null)
+        {
+            viveAxes.SetActive(true);
+            controllerVive.SetActive(true);
+            controllerVive.transform.position = GameObject.Find("BoxAndBlocks(Clone)").transform.position + new Vector3(0, 0.25f, 0);
+            voiceInput.SetActive(true);
+            gameState = GameState.AlignArm;
+        }
     }
 }
 
-public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, ArmAligned, TimerStarted, TimerEnded, Restart}; 
+public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, AlignArm, ArmAligned, TimerStarted, TimerEnded, Restart}; 
