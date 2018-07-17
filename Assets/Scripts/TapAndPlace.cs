@@ -19,7 +19,6 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
         //BoxAndBlocks.SetActive(true);
         //BoxAndBlocks.transform.position = transform.parent.position;
         DestroyAllPlaceableMarkers();
-
     }
 
     private void DestroyAllPlaceableMarkers()

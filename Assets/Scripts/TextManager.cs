@@ -100,9 +100,12 @@ public class TextManager : MonoBehaviour {
     {
         if(GameObject.Find("BoxAndBlocks(Clone)") != null)
         {
+            GameObject boxBlocks = GameObject.Find("BoxAndBlocks(Clone)");
             viveAxes.SetActive(true);
             controllerVive.SetActive(true);
-            controllerVive.transform.position = GameObject.Find("BoxAndBlocks(Clone)").transform.position + new Vector3(0, 0.25f, 0);
+            controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.5f * boxBlocks.transform.forward;
+            controllerVive.transform.Rotate(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
+
             voiceInput.SetActive(true);
             gameState = GameState.AlignArm;
         }
