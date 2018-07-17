@@ -101,7 +101,6 @@ public class TextManager : MonoBehaviour {
 
     private void EnableObjectsForTest()
     {
-        canvas.SetActive(true);
         viveAxes.SetActive(true);
         controllerVive.SetActive(true);
         voiceInput.SetActive(true);
