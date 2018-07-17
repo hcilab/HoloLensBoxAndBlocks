@@ -81,14 +81,13 @@ public class OffsetFix : MonoBehaviour
         {
             AlignAxes();
             textManager.gameState = GameState.ArmAligned;
-            transform.Rotate(0, 180, 0);
 
         }
 
         if (calibrated)
         {
             transform.localPosition = controllerPos + posOffset;
-            transform.localRotation = controllerQuat;
+            transform.localRotation = controllerQuat * Quaternion.Euler(0,180,0);
         }
     }
 
