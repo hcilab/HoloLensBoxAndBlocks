@@ -16,6 +16,8 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
         Quaternion rotation = Quaternion.Euler(0, yCamRot, 0);
         textManager.gameState = GameState.BoxPlaced;
         Instantiate(BoxAndBlocks, transform.parent.position, rotation);
+        //BoxAndBlocks.SetActive(true);
+        //BoxAndBlocks.transform.position = transform.parent.position;
         DestroyAllPlaceableMarkers();
 
     }
@@ -33,6 +35,7 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
     void Start () {
         TextManagerObject = GameObject.Find("TextManager");
         textManager = TextManagerObject.GetComponent<TextManager>();
+        //BoxAndBlocks = GameObject.Find("BoxAndBlocks");
 	}
 	
 	// Update is called once per frame
