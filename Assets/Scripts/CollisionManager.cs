@@ -35,7 +35,6 @@ public class CollisionManager : MonoBehaviour {
         {
             pickUpManager.touchingFinger = false;
             pickUpManager.touchingThumb = false;
-            Debug.Log("hit wall");
         }
     }
     void OnTriggerExit(Collider other)
