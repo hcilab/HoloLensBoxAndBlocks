@@ -42,6 +42,12 @@ public class TextManager : MonoBehaviour {
                 break;
             case GameState.ArmAligned:
                 InstructionTextMesh.text = "When ready, say 'start' to start test.\nYou have 60 seconds.";
+                if (Input.GetKeyDown("s"))
+                {
+                    gameState = GameState.TimerStarted;
+                }
+                break;
+            case GameState.TimerStarted:
                 break;
         }
     }
@@ -77,4 +83,4 @@ public class TextManager : MonoBehaviour {
     }
 }
 
-public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, ArmAligned, WaitingForTimerStart, TestStarted, TestEnded}; 
+public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, ArmAligned, TimerStarted, TimerEnded, Restart}; 
