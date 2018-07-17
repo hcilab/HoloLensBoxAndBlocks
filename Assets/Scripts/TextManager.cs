@@ -12,11 +12,14 @@ public class TextManager : MonoBehaviour {
     public GameObject controllerVive;
     public GameObject voiceInput;
     public GameObject spatialUnderstanding;
+    public GameObject countTrigger;
 
+    BoxCounter boxCounter;
     SpatialUnderstandingCustomMesh customMesh;
 
     private bool scanDone = false;
     private float countTime = 60f;
+    private int numBlocks;
 
 
     // Use this for initialization
@@ -57,11 +60,14 @@ public class TextManager : MonoBehaviour {
                 }
                 else
                 {
+                    countTrigger = GameObject.Find("CountTrigger");
+                    boxCounter = countTrigger.GetComponent<BoxCounter>();
+                    numBlocks = boxCounter.boxCount;
                     gameState = GameState.TimerEnded;
                 }
                 break;
             case GameState.TimerEnded:
-                InstructionTextMesh.text = "Time's up!";
+                InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.";
                 break;
         }
     }

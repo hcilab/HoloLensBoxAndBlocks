@@ -127,8 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxAndBlocks: {fileID: 1636204728352412, guid: 84caeefc899aa994e9c694428177d622,
     type: 2}
-  InstructionTextMesh: {fileID: 102863071238674778, guid: efaa2fe760d5ae74ea1635a048dca511,
-    type: 2}
+  TextManagerObject: {fileID: 0}
 --- !u!135 &135596916183777902
 SphereCollider:
   m_ObjectHideFlags: 1

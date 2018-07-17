@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 4762615883089282}
   m_Layer: 0
   m_Name: walls
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 65098470297894634}
   m_Layer: 0
   m_Name: partition
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -844,3 +844,4 @@ MonoBehaviour:
   instantiator: {fileID: 1412721907998054}
   boxCount: 0
   countdown: {fileID: 0}
+  started: 0
