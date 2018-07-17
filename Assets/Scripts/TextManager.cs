@@ -94,11 +94,6 @@ public class TextManager : MonoBehaviour {
         }
     }
 
-    private void TimerText()
-    {
-
-    }
-
     private void EnableObjectsForTest()
     {
         viveAxes.SetActive(true);
