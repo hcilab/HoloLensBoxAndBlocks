@@ -38,8 +38,10 @@ public class TextManager : MonoBehaviour {
                 //enable other game objects now
                 EnableObjectsForTest();
                 InstructionTextMesh.text = "align controller with hologram and say 'align'";
-                spatialUnderstanding.SetActive(false);
-                //customMesh.enabled = false;
+                spatialUnderstanding.SetActive(false); //get rid of scan mesh
+                break;
+            case GameState.ArmAligned:
+                InstructionTextMesh.text = "When ready, say 'start' to start test.\nYou have 60 seconds.";
                 break;
         }
     }
@@ -75,4 +77,4 @@ public class TextManager : MonoBehaviour {
     }
 }
 
-public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, WaitingForArmAlignment, WaitingForTimerStart, TestStarted, TestEnded}; 
+public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, ArmAligned, WaitingForTimerStart, TestStarted, TestEnded}; 
