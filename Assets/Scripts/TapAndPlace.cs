@@ -14,8 +14,8 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
     {
         float yCamRot = Camera.main.transform.eulerAngles.y;
         Quaternion rotation = Quaternion.Euler(0, yCamRot, 0);
-        Instantiate(BoxAndBlocks, transform.parent.position, rotation);
         textManager.gameState = GameState.BoxPlaced;
+        Instantiate(BoxAndBlocks, transform.parent.position, rotation);
         DestroyAllPlaceableMarkers();
 
     }

@@ -28,6 +28,9 @@ public class OffsetFix : MonoBehaviour
 
     public GameObject parentObject;
     public GameObject boxAndBlocks;
+    public GameObject TextManagerObject;
+
+    TextManager textManager;
 
     private string host = "127.0.0.1";
     private string ipAddress = "131.202.243.56";
@@ -51,6 +54,8 @@ public class OffsetFix : MonoBehaviour
 #else
         ConnectSocketUnity();
 #endif
+        TextManagerObject = GameObject.Find("TextManager");
+        textManager = TextManagerObject.GetComponent<TextManager>();
         //find box and blocks and spawn hand near that, like 35 cm above
 
     }
@@ -75,6 +80,8 @@ public class OffsetFix : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             AlignAxes();
+            textManager.gameState = GameState.ArmAligned;
+
         }
 
         if (calibrated)
