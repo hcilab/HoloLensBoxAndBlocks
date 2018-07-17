@@ -16,6 +16,8 @@ public class TextManager : MonoBehaviour {
     SpatialUnderstandingCustomMesh customMesh;
 
     private bool scanDone = false;
+    private float countTime = 60f;
+
 
     // Use this for initialization
     void Start () {
@@ -48,6 +50,18 @@ public class TextManager : MonoBehaviour {
                 }
                 break;
             case GameState.TimerStarted:
+                if (countTime > 0)
+                {
+                    countTime -= Time.deltaTime;
+                    InstructionTextMesh.text = countTime.ToString();
+                }
+                else
+                {
+                    gameState = GameState.TimerEnded;
+                }
+                break;
+            case GameState.TimerEnded:
+                InstructionTextMesh.text = "Time's up!";
                 break;
         }
     }
@@ -72,6 +86,11 @@ public class TextManager : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    private void TimerText()
+    {
+
     }
 
     private void EnableObjectsForTest()
