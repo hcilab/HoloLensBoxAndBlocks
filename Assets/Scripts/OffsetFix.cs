@@ -89,7 +89,7 @@ public class OffsetFix : MonoBehaviour
         if (calibrated)
         {
             transform.localPosition = controllerPos + posOffset;
-            transform.localRotation = controllerQuat; //* Quaternion.Euler(0,180,0);
+            transform.localRotation = controllerQuat;// * Quaternion.Euler(0,yControllerOffset,0);
         }
     }
 
@@ -192,12 +192,14 @@ public class OffsetFix : MonoBehaviour
         if (!calibrated)
         {
             yAxisOffset = controllerQuat.eulerAngles.y;
+            Debug.Log("y axis: " + yAxisOffset.ToString());
             yControllerOffset = transform.rotation.eulerAngles.y;
-            yOffset = (yAxisOffset + yControllerOffset) - 180;
+            Debug.Log("controller:" + yControllerOffset.ToString());
+            yOffset = (yControllerOffset - yAxisOffset);
+            Debug.Log("both: "+yOffset.ToString());
+            parentObject.transform.Rotate(0, yOffset, 0);
 
-            parentObject.transform.Rotate(0, -yOffset, 0);
-
-            rotOffset = Quaternion.Inverse(controllerQuat);
+            rotOffset = Quaternion.Inverse(transform.rotation);
 
             transform.parent = parentObject.transform;
             posOffset = transform.localPosition - controllerPos;

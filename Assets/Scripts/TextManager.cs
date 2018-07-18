@@ -104,7 +104,7 @@ public class TextManager : MonoBehaviour {
             viveAxes.SetActive(true);
             controllerVive.SetActive(true);
             controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.5f * boxBlocks.transform.forward;
-            controllerVive.transform.Rotate(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
+            controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
 
             voiceInput.SetActive(true);
             gameState = GameState.AlignArm;
