@@ -39,6 +39,8 @@ public class OffsetFix : MonoBehaviour
     private int port = 5555;
     private Vector3 posOffset;
     private float yOffset;
+    private float yAxisOffset;
+    private float yControllerOffset;
     private Quaternion rotOffset;
     private StreamReader reader;
     private string returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
@@ -87,7 +89,7 @@ public class OffsetFix : MonoBehaviour
         if (calibrated)
         {
             transform.localPosition = controllerPos + posOffset;
-            transform.localRotation = controllerQuat * Quaternion.Euler(0,180,0);
+            transform.localRotation = controllerQuat; //* Quaternion.Euler(0,180,0);
         }
     }
 
@@ -181,7 +183,7 @@ public class OffsetFix : MonoBehaviour
         float yQuat = Single.Parse(yQuatString);
         float zQuat = Single.Parse(zQuatString);
 
-        controllerPos = new Vector3(xPos, yPos, -zPos);
+        controllerPos = new Vector3(xPos, yPos,-zPos);
         controllerQuat = new Quaternion();
         controllerQuat.Set(-xQuat, -yQuat, zQuat, wQuat);
     }
@@ -189,7 +191,10 @@ public class OffsetFix : MonoBehaviour
     public void AlignAxes() {
         if (!calibrated)
         {
-            yOffset = controllerQuat.eulerAngles.y;
+            yAxisOffset = controllerQuat.eulerAngles.y;
+            yControllerOffset = transform.rotation.eulerAngles.y;
+            yOffset = (yAxisOffset + yControllerOffset) - 180;
+
             parentObject.transform.Rotate(0, -yOffset, 0);
 
             rotOffset = Quaternion.Inverse(controllerQuat);
