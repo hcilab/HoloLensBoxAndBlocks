@@ -15,6 +15,7 @@ public class TextManager : MonoBehaviour {
     public GameObject spatialMapping;
     public GameObject countTrigger;
     public bool rightHand = false;
+    public GameObject mappingOrchestrator;
 
     BoxCounter boxCounter;
     SpatialUnderstandingCustomMesh customMesh;
@@ -44,6 +45,7 @@ public class TextManager : MonoBehaviour {
                     rightHand = false;
                     spatialMapping.SetActive(true);
                     spatialUnderstanding.SetActive(true);
+                    mappingOrchestrator.SetActive(true);
                     gameState = GameState.RoomScan;
                 }
                 else if (Input.GetKeyDown("r"))
@@ -51,6 +53,7 @@ public class TextManager : MonoBehaviour {
                     rightHand = true;
                     spatialMapping.SetActive(true);
                     spatialUnderstanding.SetActive(true);
+                    mappingOrchestrator.SetActive(true);
                     gameState = GameState.RoomScan;
                 }
                 break;
@@ -124,13 +127,16 @@ public class TextManager : MonoBehaviour {
             GameObject boxBlocks = GameObject.Find("BoxAndBlocks(Clone)");
             viveAxes.SetActive(true);
             controllerVive.SetActive(true);
+            controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.5f * boxBlocks.transform.forward;
             if (rightHand)
             {
                 controllerVive.transform.localScale = new Vector3(1, 1, 1);
-                controllerVive.transform.rotation = Quaternion.Euler(0, 180, 0);
+                controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y + 180, 0);
             }
-            controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.5f * boxBlocks.transform.forward;
-            controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
+            else
+            {
+                controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
+            }
 
             voiceInput.SetActive(true);
             gameState = GameState.AlignArm;
