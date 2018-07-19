@@ -12,6 +12,7 @@ public class TextManager : MonoBehaviour {
     public GameObject controllerVive;
     public GameObject voiceInput;
     public GameObject spatialUnderstanding;
+    public GameObject spatialMapping;
     public GameObject countTrigger;
 
     BoxCounter boxCounter;
