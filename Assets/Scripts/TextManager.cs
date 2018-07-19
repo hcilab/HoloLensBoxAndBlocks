@@ -14,6 +14,7 @@ public class TextManager : MonoBehaviour {
     public GameObject spatialUnderstanding;
     public GameObject spatialMapping;
     public GameObject countTrigger;
+    public bool rightHand = false;
 
     BoxCounter boxCounter;
     SpatialUnderstandingCustomMesh customMesh;
@@ -25,8 +26,8 @@ public class TextManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameState = GameState.RoomScan;
-        customMesh = spatialUnderstanding.GetComponent<SpatialUnderstandingCustomMesh>();
+        gameState = GameState.StartMenu;
+        //customMesh = spatialUnderstanding.GetComponent<SpatialUnderstandingCustomMesh>();
     }
 
     // Update is called once per frame
@@ -34,6 +35,25 @@ public class TextManager : MonoBehaviour {
 
         switch (gameState)
         {
+            case GameState.StartMenu:
+                InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis in on.\n(say 'left' or 'right')";
+                //multiply hand scale by -1, or whatever I need to do to get it to be a right hand
+                //make blocks spawn on other side
+                if (Input.GetKeyDown("l"))
+                {
+                    rightHand = false;
+                    spatialMapping.SetActive(true);
+                    spatialUnderstanding.SetActive(true);
+                    gameState = GameState.RoomScan;
+                }
+                else if (Input.GetKeyDown("r"))
+                {
+                    rightHand = true;
+                    spatialMapping.SetActive(true);
+                    spatialUnderstanding.SetActive(true);
+                    gameState = GameState.RoomScan;
+                }
+                break;
             case GameState.RoomScan:
                 ScanText();
                 break;
@@ -104,6 +124,11 @@ public class TextManager : MonoBehaviour {
             GameObject boxBlocks = GameObject.Find("BoxAndBlocks(Clone)");
             viveAxes.SetActive(true);
             controllerVive.SetActive(true);
+            if (rightHand)
+            {
+                controllerVive.transform.localScale = new Vector3(1, 1, 1);
+                controllerVive.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
             controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.5f * boxBlocks.transform.forward;
             controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
 
