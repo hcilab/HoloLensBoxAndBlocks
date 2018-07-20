@@ -91,7 +91,14 @@ public class TextManager : MonoBehaviour {
                 }
                 break;
             case GameState.TimerEnded:
-                InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.";
+                InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.\n Would you like to try again?\n(say 'restart' to try again, or do the bloom gesture to end the game.)";
+                if (Input.GetKeyDown("r"))
+                {
+                    boxCounter.boxCount = 0;
+                    countTime = 60;
+                    //reset prefabs
+                    gameState = GameState.ArmAligned;
+                }
                 break;
         }
     }
@@ -131,12 +138,10 @@ public class TextManager : MonoBehaviour {
             {
                 controllerVive.transform.localScale = new Vector3(1, 1, 1);
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y + 180, 0);
-                //instantiator.transform.localPosition = new Vector3(0.13425f, 0, 0);
             }
             else
             {
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
-                //instantiator.transform.localPosition = new Vector3(-0.13425f, 0, 0);
             }
 
             voiceInput.SetActive(true);
