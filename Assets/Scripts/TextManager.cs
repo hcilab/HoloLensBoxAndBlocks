@@ -7,6 +7,7 @@ public class TextManager : MonoBehaviour {
 
     public TextMesh InstructionTextMesh;
     public GameState gameState;
+
     public GameObject canvas;
     public GameObject viveAxes;
     public GameObject controllerVive;
@@ -14,8 +15,11 @@ public class TextManager : MonoBehaviour {
     public GameObject spatialUnderstanding;
     public GameObject spatialMapping;
     public GameObject countTrigger;
-    public bool rightHand = false;
     public GameObject mappingOrchestrator;
+    public GameObject instantiator;
+
+    public bool rightHand = false;
+
 
     BoxCounter boxCounter;
     SpatialUnderstandingCustomMesh customMesh;
@@ -119,6 +123,7 @@ public class TextManager : MonoBehaviour {
         if(GameObject.Find("BoxAndBlocks(Clone)") != null)
         {
             GameObject boxBlocks = GameObject.Find("BoxAndBlocks(Clone)");
+            instantiator = GameObject.Find("Instantiators");
             viveAxes.SetActive(true);
             controllerVive.SetActive(true);
             controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.5f * boxBlocks.transform.forward;
@@ -126,10 +131,12 @@ public class TextManager : MonoBehaviour {
             {
                 controllerVive.transform.localScale = new Vector3(1, 1, 1);
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y + 180, 0);
+                instantiator.transform.localPosition = new Vector3(0.13425f, 0, 0);
             }
             else
             {
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
+                instantiator.transform.localPosition = new Vector3(-0.13425f, 0, 0);
             }
 
             voiceInput.SetActive(true);
