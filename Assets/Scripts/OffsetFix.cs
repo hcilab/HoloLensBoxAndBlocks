@@ -89,7 +89,19 @@ public class OffsetFix : MonoBehaviour
         if (calibrated)
         {
             transform.localPosition = controllerPos + posOffset;
-            transform.localRotation = controllerQuat;// * Quaternion.Euler(0,yControllerOffset,0);
+
+            if(transform.localScale.z == 1)
+            {
+                //right hand, offset by 180 degrees
+                transform.localRotation = controllerQuat * Quaternion.Euler(0,180,0);
+
+            }
+
+            else
+            {
+                //left hand
+                transform.localRotation = controllerQuat;// * Quaternion.Euler(0,yControllerOffset,0);
+            }
         }
     }
 
