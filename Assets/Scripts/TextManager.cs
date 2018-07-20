@@ -131,12 +131,12 @@ public class TextManager : MonoBehaviour {
             {
                 controllerVive.transform.localScale = new Vector3(1, 1, 1);
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y + 180, 0);
-                instantiator.transform.localPosition = new Vector3(0.13425f, 0, 0);
+                //instantiator.transform.localPosition = new Vector3(0.13425f, 0, 0);
             }
             else
             {
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
-                instantiator.transform.localPosition = new Vector3(-0.13425f, 0, 0);
+                //instantiator.transform.localPosition = new Vector3(-0.13425f, 0, 0);
             }
 
             voiceInput.SetActive(true);

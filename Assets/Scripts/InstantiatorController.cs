@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class InstantiatorController : MonoBehaviour {
 
+    public GameObject textManager;
     public GameObject pickupPrefab; //for the actual prefab
     public int amountBlocks = 30;
+
+    TextManager textManagerScript;
 
     GameObject pickupPrefabClone; //for the clone
     int i;
 
     void Start()
     {
-        for(i = 0; i < amountBlocks; i++)
+        textManager = GameObject.Find("TextManager");
+        textManagerScript = textManager.GetComponent<TextManager>();
+        // fin text manager and check which hand is selected then change position of the parent first before spawning the blocks
+        //transform.parent.transform.position
+
+        if (textManagerScript.rightHand)
+        {
+            transform.parent.localPosition = new Vector3(0.13425f, 0, 0);
+        }
+
+        else
+        {
+            transform.parent.localPosition = new Vector3(-0.13425f, 0, 0);
+        }
+        for (i = 0; i < amountBlocks; i++)
         {
             InstantiatePrefab();
         }
