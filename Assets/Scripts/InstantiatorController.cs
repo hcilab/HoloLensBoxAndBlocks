@@ -39,15 +39,26 @@ public class InstantiatorController : MonoBehaviour {
     {
         if (Input.GetKeyDown("r"))
         {
-            ResetPrefab();
+            //ResetPrefab();
         }
     }
 
-    void ResetPrefab()
+    public void ResetPrefabs()
     {
-        Destroy(pickupPrefabClone);
-        InstantiatePrefab();
+        //Destroy(pickupPrefabClone);
+        GameObject[] countedPickups = GameObject.FindGameObjectsWithTag("counted");
+        foreach (GameObject countedPickup in countedPickups)
+        {
+            Destroy(countedPickup);
+            InstantiatePrefab();
+        }
 
+        GameObject[] pickups = GameObject.FindGameObjectsWithTag("pickup");
+        foreach (GameObject pickup in pickups)
+        {
+            Destroy(pickup);
+            InstantiatePrefab();
+        }
     }
 
     public void InstantiatePrefab()
