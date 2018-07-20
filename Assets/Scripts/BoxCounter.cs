@@ -12,6 +12,7 @@ public class BoxCounter : MonoBehaviour {
     private float countTime = 60f;
     public bool started = false;
     private bool ended = false;
+    public GameState gameState;
 
     InstantiatorController instantiatorController;
 
@@ -24,10 +25,10 @@ public class BoxCounter : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown("s"))
         {
-            started = true;
+            //started = true;
         }
 
-        if (started && !ended)
+        /*if (started && !ended)
         {
             countTime -= Time.deltaTime;
 
@@ -39,12 +40,12 @@ public class BoxCounter : MonoBehaviour {
             {
                 ended = true;
             }
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "pickup" && started && !ended)
+        if ((other.gameObject.tag == "pickup") && gameState == GameState.TimerStarted)
         {
             boxCount++;
             other.gameObject.tag = "counted";
