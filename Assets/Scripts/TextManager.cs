@@ -37,24 +37,18 @@ public class TextManager : MonoBehaviour {
         switch (gameState)
         {
             case GameState.StartMenu:
-                InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis in on.\n(say 'left' or 'right')";
+                InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis is on.\n(say 'left' or 'right')";
                 //multiply hand scale by -1, or whatever I need to do to get it to be a right hand
                 //make blocks spawn on other side
                 if (Input.GetKeyDown("l"))
                 {
                     rightHand = false;
-                    spatialMapping.SetActive(true);
-                    spatialUnderstanding.SetActive(true);
-                    mappingOrchestrator.SetActive(true);
-                    gameState = GameState.RoomScan;
+                    StartMapping();
                 }
                 else if (Input.GetKeyDown("r"))
                 {
                     rightHand = true;
-                    spatialMapping.SetActive(true);
-                    spatialUnderstanding.SetActive(true);
-                    mappingOrchestrator.SetActive(true);
-                    gameState = GameState.RoomScan;
+                    StartMapping();
                 }
                 break;
             case GameState.RoomScan:
@@ -141,6 +135,14 @@ public class TextManager : MonoBehaviour {
             voiceInput.SetActive(true);
             gameState = GameState.AlignArm;
         }
+    }
+
+    private void StartMapping()
+    {
+        spatialMapping.SetActive(true);
+        spatialUnderstanding.SetActive(true);
+        mappingOrchestrator.SetActive(true);
+        gameState = GameState.RoomScan;
     }
 }
 
