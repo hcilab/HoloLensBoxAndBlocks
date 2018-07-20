@@ -192,11 +192,23 @@ public class OffsetFix : MonoBehaviour
         if (!calibrated)
         {
             yAxisOffset = controllerQuat.eulerAngles.y;
-            Debug.Log("y axis: " + yAxisOffset.ToString());
+            //Debug.Log("y axis: " + yAxisOffset.ToString());
             yControllerOffset = transform.rotation.eulerAngles.y;
-            Debug.Log("controller:" + yControllerOffset.ToString());
-            yOffset = (yControllerOffset - yAxisOffset);
-            Debug.Log("both: "+yOffset.ToString());
+            //Debug.Log("controller:" + yControllerOffset.ToString());
+
+            if(transform.localScale.z == 1)
+            {
+                //is the right hand
+                yOffset = (yControllerOffset - yAxisOffset) - 180;
+            }
+
+            else
+            {
+                //is the left hand
+                yOffset = (yControllerOffset - yAxisOffset);
+            }
+            
+            //Debug.Log("both: "+yOffset.ToString());
             parentObject.transform.Rotate(0, yOffset, 0);
 
             rotOffset = Quaternion.Inverse(transform.rotation);
