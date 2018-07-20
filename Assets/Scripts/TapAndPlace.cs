@@ -16,6 +16,7 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
         Quaternion rotation = Quaternion.Euler(0, yCamRot, 0);
         textManager.gameState = GameState.BoxPlaced;
         Instantiate(BoxAndBlocks, transform.parent.position, rotation);
+        transform.parent.gameObject.tag = "Untagged";
         //BoxAndBlocks.SetActive(true);
         //BoxAndBlocks.transform.position = transform.parent.position;
         DestroyAllPlaceableMarkers();

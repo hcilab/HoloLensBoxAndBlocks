@@ -26,7 +26,7 @@ public class TextManager : MonoBehaviour {
     InstantiatorController instantiatorController;
 
     private bool scanDone = false;
-    private float countTime = 60f;
+    private float countTime = 20f;
     private int numBlocks;
 
 
@@ -88,6 +88,7 @@ public class TextManager : MonoBehaviour {
                     countTrigger = GameObject.Find("CountTrigger");
                     boxCounter = countTrigger.GetComponent<BoxCounter>();
                     numBlocks = boxCounter.boxCount;
+                    Debug.Log(numBlocks.ToString());
                     gameState = GameState.TimerEnded;
                 }
                 break;
@@ -96,10 +97,10 @@ public class TextManager : MonoBehaviour {
                 if (Input.GetKeyDown("r"))
                 {
                     boxCounter.boxCount = 0;
-                    countTime = 60;
+                    countTime = 20;
                     //reset prefabs
                     gameState = GameState.ArmAligned;
-                    GameObject pickupInstantiator = GameObject.Find("PickUpInstantiator");
+                    GameObject pickupInstantiator = GameObject.Find("PickUpInstatiator");
                     instantiatorController = pickupInstantiator.GetComponent<InstantiatorController>();
                     instantiatorController.ResetPrefabs();
                 }

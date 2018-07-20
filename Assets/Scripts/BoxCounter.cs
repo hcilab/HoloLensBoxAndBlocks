@@ -48,6 +48,7 @@ public class BoxCounter : MonoBehaviour {
         {
             boxCount++;
             other.gameObject.tag = "counted";
+            Debug.Log("the count: " + boxCount.ToString());
         }
 
         
