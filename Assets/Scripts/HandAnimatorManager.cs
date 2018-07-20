@@ -7,6 +7,9 @@ public class HandAnimatorManager : MonoBehaviour {
 
     public float animSpeed = 1f;
     public bool isAttached = false;
+    public GameObject textManager;
+    TextManager textManagerScript;
+
 
     private float myoLeft;
     private float myoRight;
@@ -18,13 +21,23 @@ public class HandAnimatorManager : MonoBehaviour {
 	void Start () {
         handAnimator = GetComponent<Animator>();
         myoReaderClient = GetComponent<MyoReaderClient>();
+        textManager = GameObject.Find("TextManager");
+        textManagerScript = textManager.GetComponent<TextManager>();
     }
 
     // Update is called once per frame
     void Update () {
 
-        myoLeft = myoReaderClient.leftReading;
-        myoRight = myoReaderClient.rightReading;
+        if (textManagerScript.rightHand)
+        {
+            myoRight = myoReaderClient.leftReading;
+            myoLeft = myoReaderClient.rightReading;
+        }
+        else
+        {
+            myoLeft = myoReaderClient.leftReading;
+            myoRight = myoReaderClient.rightReading;
+        }
 
         if (myoLeft > myoRight)
         {

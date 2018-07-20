@@ -43,6 +43,7 @@ public class MyoReaderClient : MonoBehaviour {
 #else
         ConnectSocketUnity();
 #endif
+        
     }
 
     // Update is called once per frame
