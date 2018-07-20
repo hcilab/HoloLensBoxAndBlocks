@@ -23,6 +23,7 @@ public class TextManager : MonoBehaviour {
 
     BoxCounter boxCounter;
     SpatialUnderstandingCustomMesh customMesh;
+    InstantiatorController instantiatorController;
 
     private bool scanDone = false;
     private float countTime = 60f;
@@ -98,6 +99,9 @@ public class TextManager : MonoBehaviour {
                     countTime = 60;
                     //reset prefabs
                     gameState = GameState.ArmAligned;
+                    GameObject pickupInstantiator = GameObject.Find("PickUpInstantiator");
+                    instantiatorController = pickupInstantiator.GetComponent<InstantiatorController>();
+                    instantiatorController.ResetPrefabs();
                 }
                 break;
         }
