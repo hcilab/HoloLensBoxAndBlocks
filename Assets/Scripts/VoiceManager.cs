@@ -8,6 +8,7 @@ public class VoiceManager : MonoBehaviour {
 
     public GameObject controller;
     public GameObject counter;
+    public GameObject TextManagerObject;
     public GameState gameState;
 
     OffsetFix offsetFix;
