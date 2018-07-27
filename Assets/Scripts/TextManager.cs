@@ -48,12 +48,12 @@ public class TextManager : MonoBehaviour {
                 InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis is on.\n(say 'left' or 'right')";
                 //multiply hand scale by -1, or whatever I need to do to get it to be a right hand
                 //make blocks spawn on other side
-                if (Input.GetKeyDown("l"))
+                if (Input.GetKeyDown("l") || saidLeft)
                 {
                     rightHand = false;
                     StartMapping();
                 }
-                else if (Input.GetKeyDown("r"))
+                else if (Input.GetKeyDown("r") || saidRight)
                 {
                     rightHand = true;
                     StartMapping();
@@ -97,8 +97,9 @@ public class TextManager : MonoBehaviour {
                 break;
             case GameState.TimerEnded:
                 InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.\n Would you like to try again?\n(say 'restart' to try again, or do the bloom gesture to end the game.)";
-                if (Input.GetKeyDown("r"))
+                if (Input.GetKeyDown("r") || saidRestart)
                 {
+                    saidRestart = false;
                     boxCounter.boxCount = 0;
                     countTime = 20;
                     //reset prefabs

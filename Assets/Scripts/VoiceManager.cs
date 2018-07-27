@@ -45,9 +45,9 @@ public class VoiceManager : MonoBehaviour {
 
         keywords.Add("left", () =>
         {
-            if (textManager.gameState == GameState.ArmAligned)
+            if (textManager.gameState == GameState.StartMenu)
             {
-                textManager.gameState = GameState.TimerStarted;
+                textManager.saidLeft = true;
             }
 
             boxCounter.started = true;
@@ -55,9 +55,9 @@ public class VoiceManager : MonoBehaviour {
 
         keywords.Add("right", () =>
         {
-            if (textManager.gameState == GameState.ArmAligned)
+            if (textManager.gameState == GameState.StartMenu)
             {
-                textManager.gameState = GameState.TimerStarted;
+                textManager.saidRight = true;
             }
 
             boxCounter.started = true;
@@ -67,7 +67,7 @@ public class VoiceManager : MonoBehaviour {
         {
             if (textManager.gameState == GameState.ArmAligned)
             {
-                textManager.gameState = GameState.TimerStarted;
+                textManager.saidRestart = true;
             }
 
             boxCounter.started = true;
