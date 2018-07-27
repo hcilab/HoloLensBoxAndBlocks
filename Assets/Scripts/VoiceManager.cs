@@ -35,6 +35,41 @@ public class VoiceManager : MonoBehaviour {
 
         keywords.Add("start", () =>
         {
+            if(textManager.gameState == GameState.ArmAligned)
+            {
+                textManager.gameState = GameState.TimerStarted;
+            }
+
+            boxCounter.started = true;
+        });
+
+        keywords.Add("left", () =>
+        {
+            if (textManager.gameState == GameState.ArmAligned)
+            {
+                textManager.gameState = GameState.TimerStarted;
+            }
+
+            boxCounter.started = true;
+        });
+
+        keywords.Add("right", () =>
+        {
+            if (textManager.gameState == GameState.ArmAligned)
+            {
+                textManager.gameState = GameState.TimerStarted;
+            }
+
+            boxCounter.started = true;
+        });
+
+        keywords.Add("restart", () =>
+        {
+            if (textManager.gameState == GameState.ArmAligned)
+            {
+                textManager.gameState = GameState.TimerStarted;
+            }
+
             boxCounter.started = true;
         });
 
