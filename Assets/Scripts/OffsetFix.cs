@@ -66,7 +66,7 @@ public class OffsetFix : MonoBehaviour
     {
 #if !UNITY_EDITOR
         if (connection){
-            ListenForDataUWP();
+            //ListenForDataUWP();
             //returnedString = ListenForDataUWP();
         }
 
@@ -158,11 +158,11 @@ public class OffsetFix : MonoBehaviour
 #endif
 
 #if !UNITY_EDITOR
-    private async void ListenForDataUWP()
+    private void ListenForDataUWP()
     {
         try
         {
-            returnedString = await reader.ReadLineAsync();
+            returnedString = reader.ReadLine();
             //string dataString = reader.ReadLine();
             //return dataString;
         }
