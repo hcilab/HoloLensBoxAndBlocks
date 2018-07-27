@@ -19,6 +19,9 @@ public class TextManager : MonoBehaviour {
     public GameObject instantiator;
 
     public bool rightHand = false;
+    public bool saidRight = false;
+    public bool saidLeft = false;
+    public bool saidRestart = false;
 
 
     BoxCounter boxCounter;
