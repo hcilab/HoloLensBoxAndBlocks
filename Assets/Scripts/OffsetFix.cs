@@ -48,7 +48,7 @@ public class OffsetFix : MonoBehaviour
 #if UNITY_EDITOR
     TcpClient socketClient;
 #endif
-
+    
     void Start()
     {
 #if !UNITY_EDITOR
@@ -60,6 +60,17 @@ public class OffsetFix : MonoBehaviour
         textManager = TextManagerObject.GetComponent<TextManager>();
         //find box and blocks and spawn hand near that, like 35 cm above
 
+    }
+
+    IEnumerator CheckStream()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f / 120f);
+#if !UNITY_EDITOR
+            ListenForDataUWP();
+#endif
+        }
     }
 
     private void Update()
