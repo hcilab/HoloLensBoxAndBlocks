@@ -26,7 +26,11 @@ public class VoiceManager : MonoBehaviour {
 
         keywords.Add("align", () =>
         {
-            offsetFix.AlignAxes();
+            if(textManager.gameState == GameState.AlignArm)
+            {
+                offsetFix.AlignAxes();
+                textManager.gameState = GameState.ArmAligned;
+            }
         });
 
         keywords.Add("start", () =>
