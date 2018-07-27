@@ -8,9 +8,9 @@ public class VoiceManager : MonoBehaviour {
 
     public GameObject controller;
     public GameObject counter;
-    public GameObject TextManagerObject;
-    public GameState gameState;
+    public GameObject textManagerObject;
 
+    TextManager textManager;
     OffsetFix offsetFix;
     BoxCounter boxCounter;
 
@@ -20,6 +20,7 @@ public class VoiceManager : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 
+        textManager = textManagerObject.GetComponent<TextManager>();
         offsetFix = controller.GetComponent<OffsetFix>();
         boxCounter = counter.GetComponent<BoxCounter>();
 
