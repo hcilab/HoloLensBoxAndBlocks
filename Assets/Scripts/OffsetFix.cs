@@ -56,6 +56,7 @@ public class OffsetFix : MonoBehaviour
 #else
         ConnectSocketUnity();
 #endif
+        StartCoroutine(CheckStream());
         TextManagerObject = GameObject.Find("TextManager");
         textManager = TextManagerObject.GetComponent<TextManager>();
         //find box and blocks and spawn hand near that, like 35 cm above
