@@ -102,7 +102,7 @@ public class TextManager : MonoBehaviour {
                 }
                 break;
             case GameState.TimerEnded:
-                InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.\n Would you like to try again?\n(say 'restart' to try again, or do the bloom gesture to end the game.)";
+                InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.\n Would you like to try again?\n(say 'again' to try again, or do the bloom gesture to end the game.)";
                 if (Input.GetKeyDown("r") || saidRestart)
                 {
                     saidRestart = false;

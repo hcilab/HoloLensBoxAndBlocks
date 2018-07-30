@@ -65,7 +65,7 @@ public class VoiceManager : MonoBehaviour {
 
         keywords.Add("again", () =>
         {
-            if (textManager.gameState == GameState.ArmAligned)
+            if (textManager.gameState == GameState.TimerEnded)
             {
                 textManager.saidRestart = true;
             }
