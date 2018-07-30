@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BoxCounter : MonoBehaviour {
 
+    public GameObject textManagerObject;
     public GameObject instantiator;
     public int boxCount;
     public Text countdown;
@@ -12,12 +13,15 @@ public class BoxCounter : MonoBehaviour {
     private float countTime = 60f;
     public bool started = false;
     private bool ended = false;
-    public GameState gameState;
+    public GameState gameStateCheck;
 
     InstantiatorController instantiatorController;
+    TextManager textManagerScript;
 
     // Use this for initialization
     void Start () {
+        textManagerObject = GameObject.Find("TextManager");
+        textManagerScript = textManagerObject.GetComponent<TextManager>();
         boxCount = 0;
     }
 	
@@ -45,7 +49,7 @@ public class BoxCounter : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.tag == "pickup") && gameState == GameState.TimerStarted)
+        if ((other.gameObject.tag == "pickup") && (textManagerScript.gameState == GameState.TimerStarted))
         {
             boxCount++;
             other.gameObject.tag = "counted";
