@@ -19,6 +19,7 @@ public class OffsetFix : MonoBehaviour
 #if !UNITY_EDITOR
     private Windows.Networking.Sockets.StreamSocket socket;
     private Task socketListenTask;
+    private Task secondListenerTask;
 #endif
 
     NetworkClient myClient;
@@ -54,26 +55,26 @@ public class OffsetFix : MonoBehaviour
     {
 #if !UNITY_EDITOR
         ConnectSocketUWP();
+        //StartCoroutine(CheckStream());
 #else
         ConnectSocketUnity();
 #endif
-        //StartCoroutine(CheckStream());
         TextManagerObject = GameObject.Find("TextManager");
         textManager = TextManagerObject.GetComponent<TextManager>();
         //find box and blocks and spawn hand near that, like 35 cm above
 
     }
-    /*
-    IEnumerator CheckStream()
+#if !UNITY_EDITOR
+    /*IEnumerator CheckStream()
     {
         while (true)
         {
             yield return new WaitForSeconds(1f / 120f);
-#if !UNITY_EDITOR
             ListenForDataUWP();
-#endif
         }
     }*/
+#endif
+
 
     private void Update()
     {
@@ -81,6 +82,10 @@ public class OffsetFix : MonoBehaviour
         if (connection){
             if(socketListenTask == null || socketListenTask.IsCompleted){
                 socketListenTask = Task.Run(() => ListenForDataUWP());
+            }
+            
+            else{
+                secondListenerTask = Task.Run(() => ListenForDataUWP());
             }
             //ListenForDataUWP();
             //returnedString = ListenForDataUWP();
