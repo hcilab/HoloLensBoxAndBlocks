@@ -7,6 +7,7 @@ public class InstantiatorController : MonoBehaviour {
     public GameObject textManager;
     public GameObject pickupPrefab; //for the actual prefab
     public int amountBlocks = 30;
+    public int numCubes = 0;
 
     TextManager textManagerScript;
 
@@ -29,15 +30,19 @@ public class InstantiatorController : MonoBehaviour {
         {
             transform.parent.localPosition = new Vector3(-0.13425f, 0, 0);
         }
-        for (i = 0; i < 5; i++)
-        {
-            InstantiatePrefab();
-        }
+        //for (i = 0; i < 5; i++)
+        //{
+        //    InstantiatePrefab();
+        //}
     }
 
     private void Update()
     {
-        
+        if(numCubes < 11)
+        {
+            InstantiatePrefab();
+            numCubes++;
+        }
     }
 
     public void ResetPrefabs()
@@ -47,14 +52,14 @@ public class InstantiatorController : MonoBehaviour {
         foreach (GameObject counted in countedPickups)
         {
             Destroy(counted.transform.parent.gameObject);
-            InstantiatePrefab();
+            //InstantiatePrefab();
         }
 
         GameObject[] pickups = GameObject.FindGameObjectsWithTag("pickup");
         foreach (GameObject pickup in pickups)
         {
-            Destroy(pickup.transform.parent.gameObject);
-            InstantiatePrefab();
+            //Destroy(pickup.transform.parent.gameObject);
+            //InstantiatePrefab();
         }
     }
 
