@@ -74,7 +74,6 @@ public class TextManager : MonoBehaviour {
                 SpatialMappingManager.Instance.StopObserver();
                 //disable the mesh here
                 spatialUnderstanding.SetActive(false); //get rid of scan mesh
-                spatialMapping.SetActive(false);
                 EnableObjectsForTest();
                 break;
             case GameState.AlignArm:
