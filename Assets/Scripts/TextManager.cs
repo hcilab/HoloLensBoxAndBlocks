@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity;
+using HoloToolkit.Unity.SpatialMapping;
 
 public class TextManager : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class TextManager : MonoBehaviour {
     public bool saidLeft = false;
     public bool saidRestart = false;
 
+    SpatialMappingManager spatialMappingManager;
     BoxCounter boxCounter;
     SpatialUnderstandingCustomMesh customMesh;
     InstantiatorController instantiatorController;
