@@ -63,14 +63,14 @@ public class VoiceManager : MonoBehaviour {
             boxCounter.started = true;
         });
 
-        keywords.Add("restart", () =>
+        keywords.Add("again", () =>
         {
             if (textManager.gameState == GameState.ArmAligned)
             {
                 textManager.saidRestart = true;
             }
 
-            boxCounter.started = true;
+            //boxCounter.started = true;
         });
 
         //create the keyword recognizer and tell it what to recognize
