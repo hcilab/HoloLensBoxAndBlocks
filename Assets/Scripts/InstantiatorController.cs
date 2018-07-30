@@ -29,7 +29,7 @@ public class InstantiatorController : MonoBehaviour {
         {
             transform.parent.localPosition = new Vector3(-0.13425f, 0, 0);
         }
-        for (i = 0; i < amountBlocks; i++)
+        for (i = 0; i < 5; i++)
         {
             InstantiatePrefab();
         }
