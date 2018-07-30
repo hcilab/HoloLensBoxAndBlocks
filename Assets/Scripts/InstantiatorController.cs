@@ -57,8 +57,8 @@ public class InstantiatorController : MonoBehaviour {
         GameObject[] pickups = GameObject.FindGameObjectsWithTag("pickup");
         foreach (GameObject pickup in pickups)
         {
-            //Destroy(pickup.transform.parent.gameObject);
-            //InstantiatePrefab();
+            Destroy(pickup.transform.parent.gameObject);
+            InstantiatePrefab();
         }
     }
 
