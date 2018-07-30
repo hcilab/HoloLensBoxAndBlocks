@@ -64,9 +64,12 @@ public class TextManager : MonoBehaviour {
                 break;
             case GameState.DoneScan:
                 InstructionTextMesh.text = "Scan done.\nSelect a sphere to place box and blocks test.";
+                //stop the observer here
                 break;
             case GameState.BoxPlaced:
                 //enable other game objects now
+                //stop the observer here
+                //disable the mesh here
                 EnableObjectsForTest();
                 break;
             case GameState.AlignArm:
