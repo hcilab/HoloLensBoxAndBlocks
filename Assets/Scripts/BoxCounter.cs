@@ -13,7 +13,6 @@ public class BoxCounter : MonoBehaviour {
     private float countTime = 60f;
     public bool started = false;
     private bool ended = false;
-    public GameState gameStateCheck;
 
     InstantiatorController instantiatorController;
     TextManager textManagerScript;
