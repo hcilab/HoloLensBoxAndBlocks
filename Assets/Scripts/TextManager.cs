@@ -23,7 +23,6 @@ public class TextManager : MonoBehaviour {
     public bool saidLeft = false;
     public bool saidRestart = false;
 
-
     BoxCounter boxCounter;
     SpatialUnderstandingCustomMesh customMesh;
     InstantiatorController instantiatorController;
@@ -69,12 +68,13 @@ public class TextManager : MonoBehaviour {
             case GameState.BoxPlaced:
                 //enable other game objects now
                 //stop the observer here
+
                 //disable the mesh here
+                spatialUnderstanding.SetActive(false); //get rid of scan mesh
                 EnableObjectsForTest();
                 break;
             case GameState.AlignArm:
                 InstructionTextMesh.text = "align controller with hologram and say 'align'";
-                spatialUnderstanding.SetActive(false); //get rid of scan mesh
                 break;
             case GameState.ArmAligned:
                 InstructionTextMesh.text = "When ready, say 'start' to start test.\nYou have 60 seconds.";
