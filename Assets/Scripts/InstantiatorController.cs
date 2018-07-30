@@ -6,7 +6,6 @@ public class InstantiatorController : MonoBehaviour {
 
     public GameObject textManager;
     public GameObject pickupPrefab; //for the actual prefab
-    public int amountBlocks = 30;
     public int numCubes = 0;
 
     TextManager textManagerScript;

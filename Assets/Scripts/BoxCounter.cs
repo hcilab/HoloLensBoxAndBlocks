@@ -21,6 +21,8 @@ public class BoxCounter : MonoBehaviour {
     void Start () {
         textManagerObject = GameObject.Find("TextManager");
         textManagerScript = textManagerObject.GetComponent<TextManager>();
+
+        instantiatorController = instantiator.GetComponent<InstantiatorController>();
         boxCount = 0;
     }
 	
@@ -53,6 +55,7 @@ public class BoxCounter : MonoBehaviour {
             boxCount++;
             other.gameObject.tag = "counted";
             Debug.Log("the count: " + boxCount.ToString());
+            instantiatorController.InstantiatePrefab();
         }
 
         
