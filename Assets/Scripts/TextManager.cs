@@ -38,6 +38,7 @@ public class TextManager : MonoBehaviour {
     void Start () {
         gameState = GameState.StartMenu;
         //customMesh = spatialUnderstanding.GetComponent<SpatialUnderstandingCustomMesh>();
+        spatialMappingManager = spatialMapping.GetComponent<SpatialMappingManager>();
     }
 
     // Update is called once per frame
@@ -70,7 +71,7 @@ public class TextManager : MonoBehaviour {
             case GameState.BoxPlaced:
                 //enable other game objects now
                 //stop the observer here
-
+                SpatialMappingManager.Instance.StopObserver();
                 //disable the mesh here
                 spatialUnderstanding.SetActive(false); //get rid of scan mesh
                 EnableObjectsForTest();
