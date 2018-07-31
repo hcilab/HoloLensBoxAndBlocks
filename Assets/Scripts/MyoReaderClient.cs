@@ -48,7 +48,7 @@ public class MyoReaderClient : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
 
 #if !UNITY_EDITOR
         if (connection){
@@ -66,6 +66,10 @@ public class MyoReaderClient : MonoBehaviour {
         //returnedString = ListenForDataUnity();
         ListenForDataUnity();
 #endif
+    }
+
+    private void Update()
+    {
         StringToFloats(returnedString);
     }
 
