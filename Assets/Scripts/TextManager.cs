@@ -47,7 +47,11 @@ public class TextManager : MonoBehaviour {
         switch (gameState)
         {
             case GameState.StartMenu:
+#if !UNITY_EDITOR
                 InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis is on.\n(say 'left' or 'right')";
+#else
+                InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis is on.\n(press 'l' or 'r')";
+#endif
                 //multiply hand scale by -1, or whatever I need to do to get it to be a right hand
                 //make blocks spawn on other side
                 if (Input.GetKeyDown("l") || saidLeft)
@@ -77,10 +81,18 @@ public class TextManager : MonoBehaviour {
                 EnableObjectsForTest();
                 break;
             case GameState.AlignArm:
+#if !UNITY_EDITOR
                 InstructionTextMesh.text = "align controller with hologram and say 'align'";
+#else
+                InstructionTextMesh.text = "align controller with hologram and press 'space'";
+#endif
                 break;
             case GameState.ArmAligned:
+#if !UNITY_EDITOR
                 InstructionTextMesh.text = "When ready, say 'start' to start test.\nYou have 60 seconds.";
+#else
+                InstructionTextMesh.text = "When ready, press 's' to start test.\nYou have 60 seconds.";
+#endif
                 if (Input.GetKeyDown("s"))
                 {
                     gameState = GameState.TimerStarted;
@@ -102,7 +114,11 @@ public class TextManager : MonoBehaviour {
                 }
                 break;
             case GameState.TimerEnded:
+#if !UNITY_EDITOR
                 InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.\n Would you like to try again?\n(say 'again' to try again, or do the bloom gesture to end the game.)";
+#else
+                InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.\n Would you like to try again?\n(press 'r' to try again, or do the bloom gesture to end the game.)";
+#endif
                 if (Input.GetKeyDown("r") || saidRestart)
                 {
                     saidRestart = false;
