@@ -96,27 +96,16 @@ public class OffsetFix : MonoBehaviour
 #else
         ListenForDataUnity();
 #endif
-    }
-
-    private void Update()
-    {
-
         StringToCoordinates(returnedString);
-
-        if (Input.GetKeyDown("space"))
-        {
-            AlignAxes();
-            textManager.gameState = GameState.ArmAligned;
-        }
 
         if (calibrated)
         {
             transform.localPosition = controllerPos + posOffset;
 
-            if(textManager.rightHand)
+            if (textManager.rightHand)
             {
                 //right hand, offset by 180 degrees
-                transform.localRotation = controllerQuat * Quaternion.Euler(0,180,0);
+                transform.localRotation = controllerQuat * Quaternion.Euler(0, 180, 0);
             }
 
             else
@@ -124,6 +113,15 @@ public class OffsetFix : MonoBehaviour
                 //left hand
                 transform.localRotation = controllerQuat;// * Quaternion.Euler(0,yControllerOffset,0);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            AlignAxes();
+            textManager.gameState = GameState.ArmAligned;
         }
     }
 

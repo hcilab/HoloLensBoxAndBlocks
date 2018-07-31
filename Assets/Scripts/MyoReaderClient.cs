@@ -66,11 +66,11 @@ public class MyoReaderClient : MonoBehaviour {
         //returnedString = ListenForDataUnity();
         ListenForDataUnity();
 #endif
+        StringToFloats(returnedString);
     }
 
     private void Update()
     {
-        StringToFloats(returnedString);
     }
 
 #if UNITY_EDITOR

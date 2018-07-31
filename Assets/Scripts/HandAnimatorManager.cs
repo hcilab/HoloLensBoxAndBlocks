@@ -26,8 +26,8 @@ public class HandAnimatorManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-
+    private void FixedUpdate()
+    {
         if (textManagerScript.rightHand)
         {
             myoRight = myoReaderClient.leftReading;
@@ -38,6 +38,9 @@ public class HandAnimatorManager : MonoBehaviour {
             myoLeft = myoReaderClient.leftReading;
             myoRight = myoReaderClient.rightReading;
         }
+    }
+
+    void Update () {
 
         if (myoLeft > myoRight)
         {
