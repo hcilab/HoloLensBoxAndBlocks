@@ -8,6 +8,8 @@ public class InstantiatorController : MonoBehaviour {
     public GameObject pickupPrefab; //for the actual prefab
     public int numCubes = 0;
 
+    private int maxNumCubes = 30;
+
     TextManager textManagerScript;
 
     GameObject pickupPrefabClone; //for the clone
@@ -33,7 +35,7 @@ public class InstantiatorController : MonoBehaviour {
 
     private void Update()
     {
-        if(numCubes < 11)
+        if(numCubes < maxNumCubes)
         {
             InstantiatePrefab();
             numCubes++;
