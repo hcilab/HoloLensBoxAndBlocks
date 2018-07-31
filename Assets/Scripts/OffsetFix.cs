@@ -64,7 +64,7 @@ public class OffsetFix : MonoBehaviour
         //find box and blocks and spawn hand near that, like 35 cm above
 
     }
-//#if !UNITY_EDITOR
+    //#if !UNITY_EDITOR
     /*IEnumerator CheckStream()
     {
         while (true)
@@ -73,10 +73,9 @@ public class OffsetFix : MonoBehaviour
             ListenForDataUWP();
         }
     }*/
-//#endif
+    //#endif
 
-
-    private void Update()
+    private void FixedUpdate()
     {
 #if !UNITY_EDITOR
         if (connection){
@@ -96,15 +95,18 @@ public class OffsetFix : MonoBehaviour
         }
 #else
         ListenForDataUnity();
-        //returnedString = ListenForDataUnity();
 #endif
+    }
+
+    private void Update()
+    {
+
         StringToCoordinates(returnedString);
 
         if (Input.GetKeyDown("space"))
         {
             AlignAxes();
             textManager.gameState = GameState.ArmAligned;
-
         }
 
         if (calibrated)
