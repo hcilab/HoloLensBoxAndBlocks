@@ -113,10 +113,10 @@ public class OffsetFix : MonoBehaviour
         {
             transform.localPosition = controllerPos + posOffset;
 
-            if(transform.localScale.z == 1)
+            if(textManager.rightHand)
             {
                 //right hand, offset by 180 degrees
-                transform.localRotation = controllerQuat;// * Quaternion.Euler(0,180,0);
+                transform.localRotation = controllerQuat * Quaternion.Euler(0,180,0);
                 Debug.Log("right hand");
 
             }
