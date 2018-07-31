@@ -117,6 +117,7 @@ public class OffsetFix : MonoBehaviour
             {
                 //right hand, offset by 180 degrees
                 transform.localRotation = controllerQuat;// * Quaternion.Euler(0,180,0);
+                Debug.Log("right hand");
 
             }
 
