@@ -18,6 +18,7 @@ public class MyoReaderClient : MonoBehaviour {
 
 #if !UNITY_EDITOR
     private Windows.Networking.Sockets.StreamSocket socket;
+    private Task socketListenTask;
 #endif
 
     private string host = "127.0.0.1";
@@ -52,7 +53,10 @@ public class MyoReaderClient : MonoBehaviour {
 #if !UNITY_EDITOR
         if (connection){
             //returnedString = ListenForDataUWP();
-            ListenForDataUWP();
+            //ListenForDataUWP();
+            if(socketListenTask == null || socketListenTask.IsCompleted){
+                socketListenTask = Task.Run(() => ListenForDataUWP());
+            }
         }
 
         else {
