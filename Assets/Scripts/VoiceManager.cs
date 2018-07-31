@@ -7,9 +7,11 @@ using System.Linq;
 public class VoiceManager : MonoBehaviour {
 
     public GameObject controller;
+    public GameObject controllerObject;
     public GameObject counter;
     public GameObject textManagerObject;
 
+    private Renderer controllerMesh;
     TextManager textManager;
     OffsetFix offsetFix;
     BoxCounter boxCounter;
@@ -23,6 +25,8 @@ public class VoiceManager : MonoBehaviour {
         textManager = textManagerObject.GetComponent<TextManager>();
         offsetFix = controller.GetComponent<OffsetFix>();
         boxCounter = counter.GetComponent<BoxCounter>();
+        controllerMesh = controllerObject.GetComponent<Renderer>();
+        controllerMesh.enabled = true;
 
         keywords.Add("align", () =>
         {
@@ -30,6 +34,7 @@ public class VoiceManager : MonoBehaviour {
             {
                 offsetFix.AlignAxes();
                 textManager.gameState = GameState.ArmAligned;
+                controllerMesh.enabled = false;
             }
         });
 

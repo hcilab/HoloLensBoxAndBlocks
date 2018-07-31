@@ -12,6 +12,7 @@ public class TextManager : MonoBehaviour {
     public GameObject canvas;
     public GameObject viveAxes;
     public GameObject controllerVive;
+    public GameObject controllerObject;
     public GameObject voiceInput;
     public GameObject spatialUnderstanding;
     public GameObject spatialMapping;
@@ -93,6 +94,7 @@ public class TextManager : MonoBehaviour {
 #else
                 InstructionTextMesh.text = "When ready, press 's' to start test.\nYou have 60 seconds.";
 #endif
+
                 if (Input.GetKeyDown("s"))
                 {
                     gameState = GameState.TimerStarted;
