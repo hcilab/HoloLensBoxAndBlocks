@@ -116,7 +116,7 @@ public class OffsetFix : MonoBehaviour
             if(transform.localScale.z == 1)
             {
                 //right hand, offset by 180 degrees
-                transform.localRotation = controllerQuat * Quaternion.Euler(0,180,0);
+                transform.localRotation = controllerQuat;// * Quaternion.Euler(0,180,0);
 
             }
 
