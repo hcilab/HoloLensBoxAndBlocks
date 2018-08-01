@@ -6,6 +6,8 @@ In this file I briefly explain the purpose and function of each of the prefabs a
 
 ## Scripts
 
+Please see individual scripts for more detailed description of the function and subsequent methods.
+
 ### BoxCounter.cs
 
 This script is attached to the game object `CountTrigger` which is a child of the `BoxAndBlocks` prefab. It uses `OnTriggerEnter()` to check whether a cube moving through the count trigger above the partition is tagged with *pickup* and if the game is in the `TimerStarted` game state. If Both conditions are met, a counter is increased. This is used to count how many cubes are successfully transfered during the 60 second test.
@@ -51,10 +53,13 @@ This script is attached to the `MappingOrchestrator` game object. It scans the r
 This script is attached to the `Sphere` game object which is a child of the `PlaceableMarker` prefab. If the gaze icon in on the sphere and the user does the 'click' gesture, all placeable markers will be deleted and the `BoxAndBlocks` prefab will spawn at the selected marker.
 
 ### TextManager.cs
+
+This script is attached to the `TextManager` game object. It controls the flow of the game and breaks it up into different states. Depending on which state the game is in, different lines of code will execute. The game state can change from events occuring in this script or other scripts that reference `TextManager.cs`. It also prompts the user on what to do next with text depending on the current game state.
+
 ### Timer.cs
 
 not used for anything, should delete.
 
-### UnityClient.cs
-
 ### VoiceManager.cs
+
+This script is attached to the `VoiceInput` game object. It takes voice input and checks to see if there are any matches with pre-defined keywords. If there is a match and it occurs during the proper game state, certain actions will take place.
