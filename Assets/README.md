@@ -1,6 +1,6 @@
 # Project Assets
 
-In this .md file I briefly explain the purpose and function of each of the prfabs and scripts in this project
+In this .md file I briefly explain the purpose and function of each of the prefabs and scripts in this project
 
 ## Prefabs
 
@@ -13,10 +13,22 @@ This script is attached to the game object `CountTrigger` which is a child of th
 ### CollisionManager.cs
 
 This script is attached to each `cube_trigger` game object which is a child of the `pickup` prefab. It is the script of a cube shaped collider set to a trigger. Using `OnTriggerEnter()` and `OnTriggerExit()` the script determines whether or not the cube is in contact with a thumb and finger. If it is, it informs [PickUpManager.cs](#pickupmanager).
+
 ### HandAnimatorManager.cs
+
+This script is attached to the `ar_hand` prefab. It reads values from `MyoReaderClient.cs` and uses these to animate the hand(either open, close, or rest). 
+
 ### HideControllerAfterAlign.cs
+
+This script is attached to the `whole_model_group1` game object which is a child of the `vr_controller_vive_1_5` prefab. It disables the mesh renderer of the Vive controller in unity once the controller is aligned with the real controller.
+
 ### InstantiatorController.cs
+
+This script is attached to the `PickUpInstantiator` game object which is a child of `Instantiators` game object which is a child of `BoxAndBlock` prefab. This script checks which hand is selected, then instantiates a set number of `pickup` prefabs on the same side as the arm.
+
 ### MyoReaderClient.cs
+
+
 ### OffsetFix.cs
 ### PartitionCollider.cs
 ### PickUpManager.cs
