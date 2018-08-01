@@ -107,6 +107,8 @@ Here are a few things that I struggled with and came up often. see below for pot
 
 In this section I will outline additions that could (and should) be made to the project. I will also outline aspects of this project that could use some improvements and where this project can go if picked up by another developer.
 
+* adding more functionality to the hand, use the third number sent from *Momo* when a fist is made
+
 ## Authors
 
 * **Name** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)

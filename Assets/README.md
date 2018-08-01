@@ -1,6 +1,6 @@
 # Project Assets
 
-In this .md file I briefly explain the purpose and function of each of the prefabs and scripts in this project
+In this file I briefly explain the purpose and function of each of the prefabs and scripts in this project
 
 ## Prefabs
 
@@ -28,7 +28,7 @@ This script is attached to the `PickUpInstantiator` game object which is a child
 
 ### MyoReaderClient.cs
 
-
+This script is attached to the `ar_hand` prefab. It creates a TCP client socket and reads data from the myo armband sent from the Momo Server.
 ### OffsetFix.cs
 ### PartitionCollider.cs
 ### PickUpManager.cs
