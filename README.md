@@ -43,15 +43,18 @@ This project uses the following software:
 This section covers the different steps to install and setup all the required hardware and software components. Many of the required components are well documented. Where thourough documentation is available links will be provided.
 
 1. Install Mixed Reality Toolkit to Unity. Documentation [here](https://github.com/Microsoft/MixedRealityToolkit-Unity).
+2. Install Steam and Steam VR. Then install Vive setup [software](https://www.vive.com/eu/) (click `Setup | Download`)
+    * go through set up with just the base stations and vive
 2. Set up Vive controller (or tracker) without headset in Steam VR. Setup guide [here](https://www.roadtovr.com/how-to-use-the-htc-vive-tracker-without-a-vive-headset/) and [here](http://www.pencilsquaregames.com/getting-steamvr-tracking-data-in-unity-without-a-hmd/).
-3. Set up python TCP socket server script to send tracking data from Vive controller.
+3. Set up python TCP socket server script to send tracking data from Vive controller:
     * make sure `ScriptName` is in the same directory as `triad_openvr`
     * to run from command line, make sure python 3.6 is enabled, `cd` to directory with `ScriptName` and type:
 ```
 python ScriptName
 ```
 *   * this is required to use the controller when running the project in either the Unity editor or deployed to the HoloLens as UWP app.
-4.  
+4. Set up Momo to send Myo armband data via TCP socket:
+    * 
 
 Say what the step will be
 
