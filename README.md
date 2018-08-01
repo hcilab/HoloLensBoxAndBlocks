@@ -50,7 +50,7 @@ This section covers the different steps to install and setup all the required ha
 ```
 python ScriptName
 ```
-    * this is required to use the controller when running the project in either the Unity editor or deployed to the HoloLens as UWP app.
+*   * this is required to use the controller when running the project in either the Unity editor or deployed to the HoloLens as UWP app.
 4.  
 
 Say what the step will be
