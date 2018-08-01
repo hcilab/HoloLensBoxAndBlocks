@@ -28,54 +28,60 @@ This project uses the following hardware:
 
 This project uses the following software:
 
+* Windows 10 (cannot be any version with `N`)
 * Unity
 * [Mixed Reality Toolkit](https://github.com/Microsoft/MixedRealityToolkit-Unity)
 * Visual Studios 2017
-* Processing 
+* [Processing](https://processing.org/download/) 
 * [The Falling Of Momo](https://github.com/hcilab/Momo) (*calibrateAndStream* branch)
-* SteamVR (with opt in for the Beta) (see step 2 below)
-* Python 3.6 (see step 2 below)
-* pyopenvr (see step 2 below)
-* triad_openvr (see step 2 below)
+* SteamVR with opt in for the Beta (see step 3 below)
+* Python 3.6 (see step 3 below)
+* pyopenvr (see step 3 below)
+* triad_openvr (see step 3 below)
 
 ### Setting Up & Installing
 
 This section covers the different steps to install and setup all the required hardware and software components. Many of the required components are well documented. Where thourough documentation is available links will be provided.
 
-1. Install Mixed Reality Toolkit to Unity. Documentation [here](https://github.com/Microsoft/MixedRealityToolkit-Unity).
-2. Install Steam and Steam VR. Then install Vive setup [software](https://www.vive.com/eu/) (click `Setup | Download`)
+1. Ensure your computer as well as HoloLens are in developer mode.
+1. download and install Unity and Visual Studio 2017 (can be downloaded and installed via unity installer)
+    * make sure when installing Unity to include `Windows Store .NET Scripting Backend`
+    * make sure when installing Visual Studio to select both the **Universal Windows Platform development** and **Game Development with Unity** workloads
+    * [installation checklist](https://docs.microsoft.com/en-us/windows/mixed-reality/install-the-tools) from microsoft
+1. Install Mixed Reality Toolkit to Unity. Documentation and download [here](https://github.com/Microsoft/MixedRealityToolkit-Unity).
+1. Install Steam and Steam VR. Then install Vive setup [software](https://www.vive.com/eu/) (click `Setup | Download`)
     * go through set up with just the base stations and vive
-2. Set up Vive controller (or tracker) without headset in Steam VR. Setup guide [here](https://www.roadtovr.com/how-to-use-the-htc-vive-tracker-without-a-vive-headset/) and [here](http://www.pencilsquaregames.com/getting-steamvr-tracking-data-in-unity-without-a-hmd/) or see `Vive Controller Unity set-up.pdf`.
-3. Set up python TCP socket server script to send tracking data from Vive controller:
-    * make sure `ScriptName` is in the same directory as `triad_openvr`
+1. Set up Vive controller (or tracker) without headset in Steam VR. Setup guide [here](https://www.roadtovr.com/how-to-use-the-htc-vive-tracker-without-a-vive-headset/) and [here](http://www.pencilsquaregames.com/getting-steamvr-tracking-data-in-unity-without-a-hmd/) or see `Vive Controller Unity set-up.pdf`.
+1. Set up python TCP socket server script to send tracking data from Vive controller:
+    * make sure `ScriptName` is in the same directory as the `triad_openvr` library
     * to run from command line, make sure python 3.6 is enabled, `cd` to directory with `ScriptName` and type:
 ```
 python ScriptName
 ```
-*   * this is required to use the controller when running the project in either the Unity editor or deployed to the HoloLens as UWP app.
-4. Set up Momo to send Myo armband data via TCP socket:
+1. Set up Momo to send Myo armband data via TCP socket:
     * download or clone [this](https://github.com/hcilab/Momo) github repository. Make sure you use the *calibrateAndStream* branch.
     * set up steps are provided in the Momo repository.
+    * you will need to install processing libraries to be able to run the project
+        * these are the libraries that you need and this is how to install them
 
-Say what the step will be
+## Running the Project
 
-```
-Give the example
-```
+The project can be played either from the Unity Editor or deployed to the HoloLens as a UWP app. Each require slightly different steps and setup.
 
-And repeat
+### Running the Project in Unity
 
-```
-until finished
-```
+Running the project in Unity is useful because it is fast and great for testing, editing, and debugging. On the downside, rendering quality is greatly reduced and thus is not ideal for implementing or running actual experiments. Here are the following steps to properly run from the Unity editor:
 
-End with an example of getting some data out of the system or using it for a little demo
+1. ensure that the HoloLens and the computer running Unity are both connected to the same wifi network. (if computer connected via ethernet, create a **mobile hotspot** in windows `settings`)
+1. enter holographic remoting:
+    * on the HoloLens run *Holographic Remoting Player*
+    * in Unity editor select the `Windows` tab and go to `Window > Holographic Emulation > Emulation Mode > Remote to Device` and enter the HoloLens' IP address then press `connect`
+1. make sure both TCP socket server programs are running and streaming data (*Momo* and `ScriptName`).
+1. press play button in Unity editor 
 
-## Running the tests
+### Deploying and Running as UWP app on HoloLens
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
+Deploying the project to the HoloLens is useful because the graphics are much better and is great for running actual experiments. On the downside, deployment takes a few minutes thus making it to slow for debugging or testing. Here are the following steps to properly deploy and run the project as a UWP app on the HoloLens:
 
 Explain what these tests test and why
 
