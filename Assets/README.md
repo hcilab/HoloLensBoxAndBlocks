@@ -4,6 +4,37 @@ In this file I briefly explain the purpose and function of each of the prefabs a
 
 ## Prefabs
 
+### ar_hand.prefab
+
+Is the model of the hand that is tracked my the vive controller and used to pick-up blocks
+
+### BoxAndBlocks.prefab
+
+Is the Box and Blocks set up measured to the official dimensions. The side that spawns the blocks is raised 5 cm to closer emulate the high at which most blocks would be picked up at(since the actual test has 150 blocks whereas this set up only has 30 due to rendering issues).
+
+### pickup.prefab
+
+Is the cube that is instantiated on the box and blocks set up. Made to be picked up by the ar_hand prefab.
+
+### PickUpInstantiator.prefab
+
+has the `InstantiatorController.cs` script as a component. Is positioned in the middle of either side the unfolder box and blocks so that blocks can randomly spawn anywhere within that side.
+
+### PlaceableMarker.prefab
+
+Is the game object that is placed in each "placeable" location after the room scan is complete.
+
+### SteamVR_male_hand_left.prefab
+
+is a duplicate of ar_hand. is not used in the game.
+
+### vr_controller_vive_1_5.prefab
+
+Is the prefab of the vive controller model and is used to align the real vive controller with this game object.
+
+### vr_male_hand_left.prefab
+
+Is a duplicate of ar_hand. is not used in the game.
 ## Scripts
 
 Please see individual scripts for more detailed description of the function and subsequent methods.
