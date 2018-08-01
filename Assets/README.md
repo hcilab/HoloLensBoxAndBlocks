@@ -36,11 +36,20 @@ This script is attached to the `vr_controller_vive_1_5` prefab. It creates a TCP
 
 ### PartitionCollider.cs
 
+Not used for anything, should delete.
 
 ### PickUpManager.cs
-### ReadFromPythonServer.cs
+
+This script is attached to each `cube_trigger` game object which is a child of the `pickup` prefab. It checks to see if a block is picked up and not already attached to the hand, if this condition is met, the pickup becomes kinematic and a child of the hand to make it seem as though it is picked up. 
+
 ### ScanManager.cs
+
+This script is attached to the `MappingOrchestrator` game object. It scans the room using the HoloLens spatial mapping and understanding capabilities. Once the room is scanned it checks any surfaces that meet the constrains of a "placeable" location. A sphere is instantiated above each location that meets the criteria.
+
 ### TapAndPlace.cs
+
+This script is attached to the `Sphere` game object which is a child of the `PlaceableMarker` prefab. If the gaze icon in on the sphere and the user does the 'click' gesture, all placeable markers will be deleted and the `BoxAndBlocks` prefab will spawn at the selected marker.
+
 ### TextManager.cs
 ### Timer.cs
 
