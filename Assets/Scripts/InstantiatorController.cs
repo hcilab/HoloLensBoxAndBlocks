@@ -13,14 +13,11 @@ public class InstantiatorController : MonoBehaviour {
     TextManager textManagerScript;
 
     GameObject pickupPrefabClone; //for the clone
-    int i;
 
     void Start()
     {
         textManager = GameObject.Find("TextManager");
         textManagerScript = textManager.GetComponent<TextManager>();
-        // fin text manager and check which hand is selected then change position of the parent first before spawning the blocks
-        //transform.parent.transform.position
 
         if (textManagerScript.rightHand)
         {
@@ -44,12 +41,10 @@ public class InstantiatorController : MonoBehaviour {
 
     public void ResetPrefabs()
     {
-        //Destroy(pickupPrefabClone);
         GameObject[] countedPickups = GameObject.FindGameObjectsWithTag("counted");
         foreach (GameObject counted in countedPickups)
         {
             Destroy(counted.transform.parent.gameObject);
-            //InstantiatePrefab();
         }
 
         GameObject[] pickups = GameObject.FindGameObjectsWithTag("pickup");
