@@ -12,7 +12,7 @@ Upon Starting the application, the user will be asked to select a hand. Then the
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions outline all the required components and steps to get a working copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Required Hardware
 
@@ -29,12 +29,29 @@ This project uses the following hardware:
 This project uses the following software:
 
 * Unity
+* [Mixed Reality Toolkit](https://github.com/Microsoft/MixedRealityToolkit-Unity)
 * Visual Studios 2017
+* Processing 
 * [The Falling Of Momo](https://github.com/hcilab/Momo) (*calibrateAndStream* branch)
+* SteamVR (with opt in for the Beta) (see step 2 below)
+* Python 3.6 (see step 2 below)
+* pyopenvr (see step 2 below)
+* triad_openvr (see step 2 below)
 
-### Installing
+### Setting Up & Installing
 
-A step by step series of examples that tell you how to get a development env running
+This section covers the different steps to install and setup all the required hardware and software components. Many of the required components are well documented. Where thourough documentation is available links will be provided.
+
+1. Install Mixed Reality Toolkit to Unity. Documentation [here](https://github.com/Microsoft/MixedRealityToolkit-Unity).
+2. Set up Vive controller (or tracker) without headset in Steam VR. Setup guide [here](https://www.roadtovr.com/how-to-use-the-htc-vive-tracker-without-a-vive-headset/) and [here](http://www.pencilsquaregames.com/getting-steamvr-tracking-data-in-unity-without-a-hmd/).
+3. Set up python TCP socket server script to send tracking data from Vive controller.
+    * make sure `ScriptName` is in the same directory as `triad_openvr`
+    * to run from command line, make sure python 3.6 is enabled, `cd` to directory with `ScriptName` and type:
+```
+python ScriptName
+```
+    * this is required to use the controller when running the project in either the Unity editor or deployed to the HoloLens as UWP app.
+4.  
 
 Say what the step will be
 
