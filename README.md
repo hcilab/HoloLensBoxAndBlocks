@@ -64,6 +64,10 @@ python ScriptName
     * you will need to install processing libraries to be able to run the project
         * these are the libraries that you need and this is how to install them
 
+### Important Note
+
+For detailed descriptions of all prefabs and scripts in this project, please refer to the `README.md` file in the *Assets* directory
+
 ## Running the Project
 
 The project can be played either from the Unity Editor or deployed to the HoloLens as a UWP app. Each require slightly different steps and setup.

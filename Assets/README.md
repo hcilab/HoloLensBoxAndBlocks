@@ -28,9 +28,15 @@ This script is attached to the `PickUpInstantiator` game object which is a child
 
 ### MyoReaderClient.cs
 
-This script is attached to the `ar_hand` prefab. It creates a TCP client socket and reads data from the myo armband sent from the Momo Server.
+This script is attached to the `ar_hand` prefab. It creates a TCP client socket and reads data from the myo armband sent from the Momo Server. The read string is split up and parsed into `float` variables.
+
 ### OffsetFix.cs
+
+This script is attached to the `vr_controller_vive_1_5` prefab. It creates a TCP client socket and reads data from the Vive controller sent from the `pythonScript` server. It aligns the axes of an empty game object, `ViveAxes`, with the axes of the base stations when the user aligns the actual vive controller with the vive controller game object in unity. Then the motion and rotation of the `vr_controller_vive_1_5` is updated relative to the `ViveAxes` axes. The postition and rotation data is read from the TCP client. 
+
 ### PartitionCollider.cs
+
+
 ### PickUpManager.cs
 ### ReadFromPythonServer.cs
 ### ScanManager.cs
