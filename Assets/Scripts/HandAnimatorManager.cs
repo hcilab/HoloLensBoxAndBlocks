@@ -8,12 +8,11 @@ public class HandAnimatorManager : MonoBehaviour {
     public float animSpeed = 1f;
     public bool isAttached = false;
     public GameObject textManager;
-    TextManager textManagerScript;
-
 
     private float myoLeft;
     private float myoRight;
 
+    TextManager textManagerScript;
     Animator handAnimator;
     MyoReaderClient myoReaderClient;
 
