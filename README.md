@@ -58,7 +58,7 @@ This section covers the different steps to install and setup all the required ha
 ```
 python ScriptName
 ```
-1. Set up Momo to send Myo armband data via TCP socket:
+7. Set up Momo to send Myo armband data via TCP socket:
     * download or clone [this](https://github.com/hcilab/Momo) github repository. Make sure you use the *calibrateAndStream* branch.
     * set up steps are provided in the Momo repository.
     * you will need to install processing libraries to be able to run the project
@@ -75,18 +75,25 @@ Running the project in Unity is useful because it is fast and great for testing,
 1. ensure that the HoloLens and the computer running Unity are both connected to the same wifi network. (if computer connected via ethernet, create a **mobile hotspot** in windows `settings`)
 1. enter holographic remoting:
     * on the HoloLens run *Holographic Remoting Player*
-    * in Unity editor select the `Windows` tab and go to `Window > Holographic Emulation > Emulation Mode > Remote to Device` and enter the HoloLens' IP address then press `connect`
-1. make sure both TCP socket server programs are running and streaming data (*Momo* and `ScriptName`).
+    * in Unity editor select the `Windows` tab and go to `Windows > Holographic Emulation > Emulation Mode > Remote to Device` and enter the HoloLens' IP address then press `connect`
+1. make sure both TCP socket server programs are running and streaming data (*Momo* and `UnityScriptName`).
+    * in *Momo* must change a boolean variable to `false` so program knows will be streaming to Unity editor
 1. press play button in Unity editor 
 
 ### Deploying and Running as UWP app on HoloLens
 
 Deploying the project to the HoloLens is useful because the graphics are much better and is great for running actual experiments. On the downside, deployment takes a few minutes thus making it to slow for debugging or testing. Here are the following steps to properly deploy and run the project as a UWP app on the HoloLens:
 
-Explain what these tests test and why
-
-```
-Give an example
+1. ensure that the HoloLens and the computer running Unity are both connected to the same wifi network.
+1. build the unity project as a UWP app
+    * select `File > Build Settings`
+    * under **Platform** select **Universal Windows Platform**
+    * under **Scenes In Build** click `Add Open Scenens` and make sure *HoloViveController* is the only scene selected
+    * select `build` and once the visual studio solution is created run it. Once the app is successfully deployed to the HoloLens the app persists on the HoloLens and can be ran as any other HoloLens app.
+    * more detailed build documentation [here](https://docs.microsoft.com/en-us/windows/mixed-reality/exporting-and-building-a-unity-visual-studio-solution) and deployment documentation [here](https://docs.microsoft.com/en-us/windows/mixed-reality/using-visual-studio).
+1. ensure both TCP socket server programs are running and streaming data (*Momo* and `UWPScriptName`).
+    * in *Momo* must change a boolean variable to `true` so program knows will be streaming to HoloLens
+1. select *HoloLensClientTest* app on HoloLens
 ```
 
 ### And coding style tests
