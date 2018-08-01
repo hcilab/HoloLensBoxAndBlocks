@@ -101,7 +101,7 @@ here is a list of websites that I found very helpful for development
 
 ## Common Problems/Issues
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Here are a few things that I struggled with and came up often. see below for potential solutions or work-arounds.
 
 ## Future Work
 
@@ -109,7 +109,7 @@ In this section I will outline additions that could (and should) be made to the 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Name** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -121,4 +121,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Hat tip to anyone whose code was used
 * Inspiration
+* developers whose code I used / learned from
+* HCI lab members and IBME staff students and faculty
 * etc
