@@ -94,33 +94,18 @@ Deploying the project to the HoloLens is useful because the graphics are much be
 1. ensure both TCP socket server programs are running and streaming data (*Momo* and `UWPScriptName`).
     * in *Momo* must change a boolean variable to `true` so program knows will be streaming to HoloLens
 1. select *HoloLensClientTest* app on HoloLens
-```
 
-### And coding style tests
+## Useful Websites/Forums/Pages
 
-Explain what these tests test and why
+here is a list of websites that I found very helpful for development
 
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
+## Common Problems/Issues
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
+## Future Work
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+In this section I will outline additions that could (and should) be made to the project. I will also outline aspects of this project that could use some improvements and where this project can go if picked up by another developer.
 
 ## Authors
 
