@@ -14,12 +14,6 @@ public class CollisionManager : MonoBehaviour {
         pickUpManager = GetComponent<PickUpManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "finger")
@@ -30,13 +24,13 @@ public class CollisionManager : MonoBehaviour {
         {
             pickUpManager.touchingThumb = true;
         }
-
         else if ((other.gameObject.tag == "wall" || other.gameObject.transform.parent.tag == "wall") && pickUpManager.IsPickedUp())
         {
             pickUpManager.touchingFinger = false;
             pickUpManager.touchingThumb = false;
         }
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "finger")
