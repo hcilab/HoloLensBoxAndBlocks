@@ -26,28 +26,6 @@ public class BoxCounter : MonoBehaviour {
         boxCount = 0;
     }
 	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown("s"))
-        {
-            //started = true;
-        }
-
-        /*if (started && !ended)
-        {
-            countTime -= Time.deltaTime;
-
-            if (countTime > 0)
-            {
-            }
-
-            else
-            {
-                ended = true;
-            }
-        }*/
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.tag == "pickup") && (textManagerScript.gameState == GameState.TimerStarted))
@@ -57,7 +35,5 @@ public class BoxCounter : MonoBehaviour {
             Debug.Log("the count: " + boxCount.ToString());
             instantiatorController.InstantiatePrefab();
         }
-
-        
     }
 }
