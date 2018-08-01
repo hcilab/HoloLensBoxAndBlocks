@@ -12,7 +12,7 @@ This script is attached to the game object `CountTrigger` which is a child of th
 
 ### CollisionManager.cs
 
-This script is attached to each `cube_trigger` game object which is a child of the `pickup` prefab. It is the script of a cube shaped collider set to a trigger. Using `OnTriggerEnter()` and `OnTriggerExit()` the script determines whether or not the cube is in contact with a thumb and finger. If it is, it informs [PickUpManager.cs](#pickupmanager.cs).
+This script is attached to each `cube_trigger` game object which is a child of the `pickup` prefab. It is the script of a cube shaped collider set to a trigger. Using `OnTriggerEnter()` and `OnTriggerExit()` the script determines whether or not the cube is in contact with a thumb and finger. If it is, it informs [PickUpManager.cs](#pickupmanager).
 ### HandAnimatorManager.cs
 ### HideControllerAfterAlign.cs
 ### InstantiatorController.cs
