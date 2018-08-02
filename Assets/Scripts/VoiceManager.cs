@@ -19,6 +19,9 @@ public class VoiceManager : MonoBehaviour {
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
 
     // Use this for initialization
+    /// <summary>
+    /// 
+    /// </summary>
 	void Start () {
 
         textManager = textManagerObject.GetComponent<TextManager>();
@@ -76,7 +79,10 @@ public class VoiceManager : MonoBehaviour {
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
         keywordRecognizer.Start();
 	}
-	
+
+    /// <summary>
+    /// 
+    /// </summary>
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
         System.Action keywordAction;
