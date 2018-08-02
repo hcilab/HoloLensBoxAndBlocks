@@ -7,7 +7,6 @@ public class PickUpManager : MonoBehaviour {
 
     public GameObject parentShape;
     public GameObject hand;
-
     public float animState;
     public bool attached = false;
     public bool touchingFinger = false;
@@ -25,9 +24,6 @@ public class PickUpManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-        //handAnimatorManager.isAttached = attached;
-
         if (IsPickedUp() && !attached)
         {
             attached = true;
