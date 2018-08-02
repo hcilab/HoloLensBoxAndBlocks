@@ -9,16 +9,20 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
     public GameObject TextManagerObject;
 
     TextManager textManager;
-    
+
+    // Use this for initialization
+    void Start()
+    {
+        TextManagerObject = GameObject.Find("TextManager");
+        textManager = TextManagerObject.GetComponent<TextManager>();
+    }
+
     public void OnInputClicked(InputClickedEventData eventData)
     {
         float yCamRot = Camera.main.transform.eulerAngles.y;
         Quaternion rotation = Quaternion.Euler(0, yCamRot, 0);
         textManager.gameState = GameState.BoxPlaced;
         Instantiate(BoxAndBlocks, transform.parent.position, rotation);
-        //transform.parent.gameObject.tag = "Untagged";
-        //BoxAndBlocks.SetActive(true);
-        //BoxAndBlocks.transform.position = transform.parent.position;
         DestroyAllPlaceableMarkers();
     }
 
@@ -30,16 +34,4 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
             Destroy(placeable);
         }
     }
-
-    // Use this for initialization
-    void Start () {
-        TextManagerObject = GameObject.Find("TextManager");
-        textManager = TextManagerObject.GetComponent<TextManager>();
-        //BoxAndBlocks = GameObject.Find("BoxAndBlocks");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
