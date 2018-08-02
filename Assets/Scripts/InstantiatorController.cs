@@ -14,6 +14,10 @@ public class InstantiatorController : MonoBehaviour {
 
     GameObject pickupPrefabClone; //for the clone
 
+    /// <summary>
+    /// creates an instance of the TextManager gameobject to access the text manager script component attached to it.
+    /// checks which hand has been selected and moves the parent object the same side as the arm.
+    /// </summary>
     void Start()
     {
         textManager = GameObject.Find("TextManager");
@@ -30,6 +34,9 @@ public class InstantiatorController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// spawns 1 block every frame until there are maxNumCubes amount.
+    /// </summary>
     private void Update()
     {
         if(numCubes < maxNumCubes)
@@ -39,6 +46,11 @@ public class InstantiatorController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Finds all game objects with tag "counted" and destroys them. Also finds all game objects with tag "pickup"
+    /// and destroys them but also instantiates a new pick up for everyone destroyed. This is so that all cubes are
+    /// reset to the original side and all extra ones are destroyed.
+    /// </summary>
     public void ResetPrefabs()
     {
         GameObject[] countedPickups = GameObject.FindGameObjectsWithTag("counted");
@@ -55,6 +67,10 @@ public class InstantiatorController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Instantiates a pickup prefab at some random location on the chosen side of the box and blocks
+    /// set up. The prefab is assigned randomly one of four colours.
+    /// </summary>
     public void InstantiatePrefab()
     {
         int colourCase;
@@ -80,7 +96,6 @@ public class InstantiatorController : MonoBehaviour {
                 pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.green;
                 break;
             default:
-                pickupPrefabClone.GetComponent<MeshRenderer>().material.color = Color.white;
                 break;
         }
     }
