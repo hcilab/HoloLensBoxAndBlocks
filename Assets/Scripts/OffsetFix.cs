@@ -47,7 +47,10 @@ public class OffsetFix : MonoBehaviour
 #if UNITY_EDITOR
     TcpClient socketClient;
 #endif
-    
+
+    /// <summary>
+    /// calls either method depending on if in Unity editor or as UWP app to Established a TCP socket connection.
+    /// </summary>
     void Start()
     {
 #if !UNITY_EDITOR
@@ -60,6 +63,10 @@ public class OffsetFix : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// called at a fixed interval. If TCP socket connection has been made, a thread is created to read from the socket.
+    /// read string from the TCP connection is sent to StringToCoordinates method.
+    /// </summary>
     private void FixedUpdate()
     {
 #if !UNITY_EDITOR
@@ -96,6 +103,9 @@ public class OffsetFix : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  checks to see if the spacebar is pressed. If it is, calls AlignAxes method and advanced the game state to ArmAligned.
+    /// </summary>
     private void Update()
     {
         if (Input.GetKeyDown("space"))
@@ -105,6 +115,10 @@ public class OffsetFix : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Established a TCP socket connection to receive packets from another port.
+    /// This is used when running from the Unity editor.
+    /// </summary>
 #if UNITY_EDITOR
     void ConnectSocketUnity()
     {
@@ -123,6 +137,10 @@ public class OffsetFix : MonoBehaviour
     }
 #endif
 
+    /// <summary>
+    /// established a TCP socket connection to receive packets from another device.
+    /// This is used when running as a UWP app on the HoloLens.
+    /// </summary>
 #if !UNITY_EDITOR
     private async void ConnectSocketUWP()
     {
@@ -144,6 +162,9 @@ public class OffsetFix : MonoBehaviour
     }
 #endif
 
+    /// <summary>
+    /// Reads data from the TCP socket connection. This string is stored in the variable returnedString.
+    /// </summary>
 #if UNITY_EDITOR
     void ListenForDataUnity()
     {
@@ -155,6 +176,9 @@ public class OffsetFix : MonoBehaviour
     }
 #endif
 
+    /// <summary>
+    /// Reads data from the TCP socket connection. This string is stored in the variable returnedString. 
+    /// </summary>
 #if !UNITY_EDITOR
     private void ListenForDataUWP()
     {
@@ -170,6 +194,10 @@ public class OffsetFix : MonoBehaviour
     }
 #endif
 
+    /// <summary>
+    /// Splits inputString into strings that were seperated by a ' '. Assigns each split string to a new 
+    /// string that represents the different readings from the Vive controller. 
+    /// </summary>
     void StringToCoordinates(string inputString)
     {
         string[] splitCoords = inputString.Split(' ');
@@ -195,6 +223,11 @@ public class OffsetFix : MonoBehaviour
         controllerQuat.Set(-xQuat, -yQuat, zQuat, wQuat);
     }
 
+    /// <summary>
+    /// Aligns the axes of the empty game object parentObject (ViveAxes in game heirarchy) with the 
+    /// axes of the base station and controller. Then makes the controller game object a child of that 
+    /// empty game oject so that all motion and rotation in the real world is the same as in the game world.
+    /// </summary>
     public void AlignAxes() {
         if (!calibrated)
         {
