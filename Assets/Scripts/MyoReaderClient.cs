@@ -118,14 +118,11 @@ public class MyoReaderClient : MonoBehaviour {
         try
         {
             returnedString = reader.ReadLineAsync();
-            //string dataString = reader.ReadLine();
-            //return dataString;
         }
 
         catch (Exception e)
         {
             returnedString = "0.0000,0.0000,0.0";
-            //return "0.0000,0.0000,0.0";
         }
     }
 #endif
