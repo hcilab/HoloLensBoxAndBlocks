@@ -18,11 +18,7 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
 
     private void ScanStateChanged()
     {
-        if (SpatialUnderstanding.Instance.ScanState == SpatialUnderstanding.ScanStates.Scanning)
-        {
-            LogSurfaceState();
-        }
-        else if (SpatialUnderstanding.Instance.ScanState == SpatialUnderstanding.ScanStates.Done)
+        if (SpatialUnderstanding.Instance.ScanState == SpatialUnderstanding.ScanStates.Done)
         {
             CreateShapes();
             InstantiateObjectOnPlaceable();
