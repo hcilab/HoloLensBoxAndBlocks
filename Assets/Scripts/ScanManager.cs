@@ -10,12 +10,18 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
     public GameObject PlaceablePrefab;
 
     // Use this for initialization
+    /// <summary>
+    /// 
+    /// </summary>
     void Start () {
         InputManager.Instance.PushFallbackInputHandler(gameObject);
         SpatialUnderstanding.Instance.RequestBeginScanning();
         SpatialUnderstanding.Instance.ScanStateChanged += ScanStateChanged;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void ScanStateChanged()
     {
         if (SpatialUnderstanding.Instance.ScanState == SpatialUnderstanding.ScanStates.Done)
@@ -25,11 +31,17 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void OnDestroy()
     {
         SpatialUnderstanding.Instance.ScanStateChanged -= ScanStateChanged;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void CreateShapes()
     {
         // Create definitions and analyze
@@ -37,6 +49,9 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
         SpatialUnderstandingDllShapes.ActivateShapeAnalysis();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void CreateCustomShapeDefinitions()
     {
         if (!SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
@@ -65,6 +80,9 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
         SpatialUnderstandingDllShapes.AddShape("Placeable", shapeComponents.Count, shapeComponentsPtr, 0, IntPtr.Zero);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void OnInputClicked(InputClickedEventData eventData)
     {
         if (SpatialUnderstanding.Instance.ScanState != SpatialUnderstanding.ScanStates.Done)
@@ -73,6 +91,9 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void InstantiateObjectOnPlaceable()
     {
         const int QueryResultMaxCount = 512;
