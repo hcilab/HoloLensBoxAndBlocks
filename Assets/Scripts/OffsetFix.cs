@@ -86,14 +86,12 @@ public class OffsetFix : MonoBehaviour
 
             if (textManager.rightHand)
             {
-                //right hand, offset by 180 degrees
                 transform.localRotation = controllerQuat * Quaternion.Euler(0, 180, 0);
             }
 
             else
             {
-                //left hand
-                transform.localRotation = controllerQuat;// * Quaternion.Euler(0,yControllerOffset,0);
+                transform.localRotation = controllerQuat;
             }
         }
     }
@@ -153,8 +151,6 @@ public class OffsetFix : MonoBehaviour
         byte[] bytes = new byte[socketClient.ReceiveBufferSize];
         NetworkStream stream = socketClient.GetStream();
         data = stream.Read(bytes, 0, socketClient.ReceiveBufferSize);
-        //string dataString = Encoding.UTF8.GetString(bytes, 0, data);
-        //return dataString;
         returnedString = Encoding.UTF8.GetString(bytes, 0, data);
     }
 #endif
@@ -165,13 +161,10 @@ public class OffsetFix : MonoBehaviour
         try
         {
             returnedString = reader.ReadLine();
-            //string dataString = reader.ReadLine();
-            //return dataString;
         }
 
         catch (Exception e)
         {
-            //return "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
             returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
         }
     }
@@ -206,9 +199,7 @@ public class OffsetFix : MonoBehaviour
         if (!calibrated)
         {
             yAxisOffset = controllerQuat.eulerAngles.y;
-            //Debug.Log("y axis: " + yAxisOffset.ToString());
             yControllerOffset = transform.rotation.eulerAngles.y;
-            //Debug.Log("controller:" + yControllerOffset.ToString());
 
             if(transform.localScale.z == 1)
             {
@@ -222,14 +213,10 @@ public class OffsetFix : MonoBehaviour
                 yOffset = (yControllerOffset - yAxisOffset);
             }
             
-            //Debug.Log("both: "+yOffset.ToString());
             parentObject.transform.Rotate(0, yOffset, 0);
-
             rotOffset = Quaternion.Inverse(transform.rotation);
-
             transform.parent = parentObject.transform;
             posOffset = transform.localPosition - controllerPos;
-            
             calibrated = true;
         }
     }
