@@ -38,6 +38,9 @@ public class MyoReaderClient : MonoBehaviour {
 #endif
 
     // Use this for initialization
+    /// <summary>
+    /// calls either method depending on if in Unity editor or as UWP app to Established a TCP socket connection.
+    /// </summary>
     void Start () {
 #if !UNITY_EDITOR
         ConnectSocketUWP();
@@ -45,9 +48,12 @@ public class MyoReaderClient : MonoBehaviour {
         ConnectSocketUnity();
 #endif
     }
-
+    
+    /// <summary>
+    /// called at a fixed interval. If TCP socket connection has been made, a thread is created to read from the socket.
+    /// read string from the TCP connection is sent to StringToFloat method.
+    /// </summary>
     void FixedUpdate () {
-
 #if !UNITY_EDITOR
         if (connection)
         {
@@ -66,7 +72,11 @@ public class MyoReaderClient : MonoBehaviour {
 #endif
         StringToFloats(returnedString);
     }
-
+    
+    /// <summary>
+    /// Established a TCP socket connection to receive packets from another port.
+    /// This is used when running from the Unity editor.
+    /// </summary>
 #if UNITY_EDITOR
     void ConnectSocketUnity()
     {
@@ -84,6 +94,10 @@ public class MyoReaderClient : MonoBehaviour {
         }
     }
 #else
+    /// <summary>
+    /// established a TCP socket connection to receive packets from another device.
+    /// This is used when running as a UWP app on the HoloLens.
+    /// </summary>
     private async void ConnectSocketUWP()
     {
         try
@@ -103,6 +117,9 @@ public class MyoReaderClient : MonoBehaviour {
     }
 #endif
 
+    /// <summary>
+    /// Reads data from the TCP socket connection. This string is stored in the variable returnedString.
+    /// </summary>
 #if UNITY_EDITOR
     void ListenForDataUnity()
     {
@@ -113,6 +130,9 @@ public class MyoReaderClient : MonoBehaviour {
         returnedString = Encoding.UTF8.GetString(bytes, 0, data);
     }
 #else
+    /// <summary>
+    /// Reads data from the TCP socket connection. This string is stored in the variable returnedString.
+    /// </summary>
     private void ListenForDataUWP()
     {
         try
@@ -127,6 +147,10 @@ public class MyoReaderClient : MonoBehaviour {
     }
 #endif
 
+    /// <summary>
+    /// Splits inputString into strings that were seperated by a ','. Assigns each split string to a new 
+    /// string that represents the different readings from the Myo armband.
+    /// </summary>
     void StringToFloats(string inputString)
     {
         string[] splitReading = inputString.Split(',');
