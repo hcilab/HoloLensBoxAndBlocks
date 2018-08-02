@@ -31,20 +31,18 @@ public class TextManager : MonoBehaviour {
     InstantiatorController instantiatorController;
 
     private bool scanDone = false;
-    private float countTime = 20f;
+    private float countTime = 20f; //length of test in seconds
     private int numBlocks;
 
 
     // Use this for initialization
     void Start () {
         gameState = GameState.StartMenu;
-        //customMesh = spatialUnderstanding.GetComponent<SpatialUnderstandingCustomMesh>();
         spatialMappingManager = spatialMapping.GetComponent<SpatialMappingManager>();
     }
 
     // Update is called once per frame
     void Update () {
-
         switch (gameState)
         {
             case GameState.StartMenu:
@@ -53,8 +51,6 @@ public class TextManager : MonoBehaviour {
 #else
                 InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis is on.\n(press 'l' or 'r')";
 #endif
-                //multiply hand scale by -1, or whatever I need to do to get it to be a right hand
-                //make blocks spawn on other side
                 if (Input.GetKeyDown("l") || saidLeft)
                 {
                     rightHand = false;
@@ -71,14 +67,10 @@ public class TextManager : MonoBehaviour {
                 break;
             case GameState.DoneScan:
                 InstructionTextMesh.text = "Scan done.\nSelect a sphere to place box and blocks test.";
-                //stop the observer here
                 break;
             case GameState.BoxPlaced:
-                //enable other game objects now
-                //stop the observer here
                 SpatialMappingManager.Instance.StopObserver();
-                //disable the mesh here
-                spatialUnderstanding.SetActive(false); //get rid of scan mesh
+                spatialUnderstanding.SetActive(false);
                 EnableObjectsForTest();
                 break;
             case GameState.AlignArm:
@@ -94,7 +86,6 @@ public class TextManager : MonoBehaviour {
 #else
                 InstructionTextMesh.text = "When ready, press 's' to start test.\nYou have 60 seconds.";
 #endif
-
                 if (Input.GetKeyDown("s"))
                 {
                     gameState = GameState.TimerStarted;
@@ -111,7 +102,6 @@ public class TextManager : MonoBehaviour {
                     countTrigger = GameObject.Find("CountTrigger");
                     boxCounter = countTrigger.GetComponent<BoxCounter>();
                     numBlocks = boxCounter.boxCount;
-                    Debug.Log(numBlocks.ToString());
                     gameState = GameState.TimerEnded;
                 }
                 break;
@@ -126,7 +116,6 @@ public class TextManager : MonoBehaviour {
                     saidRestart = false;
                     boxCounter.boxCount = 0;
                     countTime = 20;
-                    //reset prefabs
                     gameState = GameState.ArmAligned;
                     GameObject pickupInstantiator = GameObject.Find("PickUpInstatiator");
                     instantiatorController = pickupInstantiator.GetComponent<InstantiatorController>();
@@ -140,15 +129,11 @@ public class TextManager : MonoBehaviour {
     {
         switch (SpatialUnderstanding.Instance.ScanState)
         {
-            case SpatialUnderstanding.ScanStates.None:
-                break;
-            case SpatialUnderstanding.ScanStates.ReadyToScan:
-                break;
             case SpatialUnderstanding.ScanStates.Scanning:
                 InstructionTextMesh.text = "Scanning in progress.\nWhen ready, tap anywhere to finish scan.";
                 break;
             case SpatialUnderstanding.ScanStates.Finishing:
-                this.InstructionTextMesh.text = "State: Finishing Scan";
+                InstructionTextMesh.text = "Almost complete, finishing scan";
                 break;
             case SpatialUnderstanding.ScanStates.Done:
                 gameState = GameState.DoneScan;

@@ -15,7 +15,6 @@ public class VoiceManager : MonoBehaviour {
     TextManager textManager;
     OffsetFix offsetFix;
     BoxCounter boxCounter;
-
     KeywordRecognizer keywordRecognizer;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
 
@@ -44,8 +43,6 @@ public class VoiceManager : MonoBehaviour {
             {
                 textManager.gameState = GameState.TimerStarted;
             }
-
-            boxCounter.started = true;
         });
 
         keywords.Add("left", () =>
@@ -54,8 +51,6 @@ public class VoiceManager : MonoBehaviour {
             {
                 textManager.saidLeft = true;
             }
-
-            boxCounter.started = true;
         });
 
         keywords.Add("right", () =>
@@ -64,8 +59,6 @@ public class VoiceManager : MonoBehaviour {
             {
                 textManager.saidRight = true;
             }
-
-            boxCounter.started = true;
         });
 
         keywords.Add("again", () =>
@@ -74,8 +67,6 @@ public class VoiceManager : MonoBehaviour {
             {
                 textManager.saidRestart = true;
             }
-
-            //boxCounter.started = true;
         });
 
         //create the keyword recognizer and tell it what to recognize
@@ -86,11 +77,6 @@ public class VoiceManager : MonoBehaviour {
         keywordRecognizer.Start();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
         System.Action keywordAction;
