@@ -21,17 +21,17 @@ public class MyoReaderClient : MonoBehaviour {
     private Task socketListenTask;
 #endif
 
-    private string host = "127.0.0.1";
-    private string ipAddress = "131.202.243.56";
-    private int port = 12345;
-    private string portUWP = "12345";
     public float leftReading;
     public float rightReading;
     public bool connection = false;
 
-    private StreamReader reader;
+    private int port = 12345;
+    private string host = "127.0.0.1";
+    private string ipAddress = "131.202.243.56";
+    private string portUWP = "12345";
     private string returnedString = "0.0000,0.0000,0.0";
     private string readString = null;
+    private StreamReader reader;
 
 #if UNITY_EDITOR
     TcpClient socketClient;
@@ -44,33 +44,27 @@ public class MyoReaderClient : MonoBehaviour {
 #else
         ConnectSocketUnity();
 #endif
-        
     }
 
-    // Update is called once per frame
     void FixedUpdate () {
 
 #if !UNITY_EDITOR
-        if (connection){
-            //returnedString = ListenForDataUWP();
-            //ListenForDataUWP();
-            if(socketListenTask == null || socketListenTask.IsCompleted){
+        if (connection)
+        {
+            if(socketListenTask == null || socketListenTask.IsCompleted)
+            {
                 socketListenTask = Task.Run(() => ListenForDataUWP());
             }
         }
 
-        else {
+        else 
+        {
             returnedString = "0.0000,0.0000,0.0";
         }
 #else
-        //returnedString = ListenForDataUnity();
         ListenForDataUnity();
 #endif
         StringToFloats(returnedString);
-    }
-
-    private void Update()
-    {
     }
 
 #if UNITY_EDITOR
@@ -97,7 +91,6 @@ public class MyoReaderClient : MonoBehaviour {
             socket = new Windows.Networking.Sockets.StreamSocket();
             Windows.Networking.HostName serverHost = new Windows.Networking.HostName(ipAddress);
             await socket.ConnectAsync(serverHost, portUWP);
-
             Stream streamIn = socket.InputStream.AsStreamForRead();
             reader = new StreamReader(streamIn, Encoding.UTF8);
             connection = true;
