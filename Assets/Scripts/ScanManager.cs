@@ -7,7 +7,6 @@ using HoloToolkit.Unity;
 
 public class ScanManager : MonoBehaviour, IInputClickHandler
 {
-    //public TextMesh InstructionTextMesh;
     public GameObject PlaceablePrefab;
 
     // Use this for initialization
@@ -68,38 +67,6 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
 
         IntPtr shapeComponentsPtr = SpatialUnderstanding.Instance.UnderstandingDLL.PinObject(shapeComponents.ToArray());
         SpatialUnderstandingDllShapes.AddShape("Placeable", shapeComponents.Count, shapeComponentsPtr, 0, IntPtr.Zero);
-    }
-
-    // Update is called once per frame
-    void Update () {
-        switch (SpatialUnderstanding.Instance.ScanState)
-        {
-            case SpatialUnderstanding.ScanStates.None:
-                break;
-            case SpatialUnderstanding.ScanStates.ReadyToScan:
-                break;
-            case SpatialUnderstanding.ScanStates.Scanning:
-                //InstructionTextMesh.text = "Scanning in progress.\nWhen ready, tap anywhere to finish scan.";
-                break;
-            case SpatialUnderstanding.ScanStates.Finishing:
-                //this.InstructionTextMesh.text = "State: Finishing Scan";
-                break;
-            case SpatialUnderstanding.ScanStates.Done:
-                //InstructionTextMesh.text = "State: Scan Finished\nTap a sphere to place box and blocks test";
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void LogSurfaceState()
-    {
-        IntPtr statsPtr = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceStatsPtr();
-        if (SpatialUnderstandingDll.Imports.QueryPlayspaceStats(statsPtr) != 0)
-        {
-            var stats = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceStats();
-            //this.InstructionTextMesh.text = string.Format("TotalSurfaceArea: {0:0.##}\nWallSurfaceArea: {1:0.##}\nHorizSurfaceArea: {2:0.##}\nWhen ready, tap anywhere to finish scan.", stats.TotalSurfaceArea, stats.WallSurfaceArea, stats.HorizSurfaceArea);
-        }
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
