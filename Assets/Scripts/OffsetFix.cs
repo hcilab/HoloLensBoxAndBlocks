@@ -19,33 +19,30 @@ public class OffsetFix : MonoBehaviour
 #if !UNITY_EDITOR
     private Windows.Networking.Sockets.StreamSocket socket;
     private Task socketListenTask;
-    //private Task secondListenerTask;
 #endif
-
-    NetworkClient myClient;
 
     public Vector3 controllerPos;
     public Quaternion controllerQuat;
     public bool calibrated = false;
-
     public GameObject parentObject;
     public GameObject boxAndBlocks;
     public GameObject TextManagerObject;
 
     TextManager textManager;
+    NetworkClient myClient;
 
     private string host = "127.0.0.1";
     private string ipAddress = "131.202.243.56";
     private string portUWP = "5555";
+    private string returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
     private bool connection = false;
     private int port = 5555;
-    private Vector3 posOffset;
     private float yOffset;
     private float yAxisOffset;
     private float yControllerOffset;
+    private Vector3 posOffset;
     private Quaternion rotOffset;
     private StreamReader reader;
-    private string returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
 
 #if UNITY_EDITOR
     TcpClient socketClient;
@@ -55,42 +52,27 @@ public class OffsetFix : MonoBehaviour
     {
 #if !UNITY_EDITOR
         ConnectSocketUWP();
-        //StartCoroutine(CheckStream());
 #else
         ConnectSocketUnity();
 #endif
         TextManagerObject = GameObject.Find("TextManager");
         textManager = TextManagerObject.GetComponent<TextManager>();
-        //find box and blocks and spawn hand near that, like 35 cm above
 
     }
-    //#if !UNITY_EDITOR
-    /*IEnumerator CheckStream()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f / 120f);
-            ListenForDataUWP();
-        }
-    }*/
-    //#endif
 
     private void FixedUpdate()
     {
 #if !UNITY_EDITOR
-        if (connection){
-            if(socketListenTask == null || socketListenTask.IsCompleted){
+        if (connection)
+        {
+            if(socketListenTask == null || socketListenTask.IsCompleted)
+            {
                 socketListenTask = Task.Run(() => ListenForDataUWP());
             }
-            
-            else{
-                //secondListenerTask = Task.Run(() => ListenForDataUWP());
-            }
-            //ListenForDataUWP();
-            //returnedString = ListenForDataUWP();
         }
 
-        else {
+        else 
+        {
             returnedString = "0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000";
         }
 #else
