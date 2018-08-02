@@ -69,17 +69,13 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
     {
         if (SpatialUnderstanding.Instance.ScanState != SpatialUnderstanding.ScanStates.Done)
         {
-            //this.InstructionTextMesh.text = "Requested Finish Scan";
-
             SpatialUnderstanding.Instance.RequestFinishScan();
         }
-
     }
 
     public void InstantiateObjectOnPlaceable()
     {
         const int QueryResultMaxCount = 512;
-
         SpatialUnderstandingDllShapes.ShapeResult[] resultsShape = new SpatialUnderstandingDllShapes.ShapeResult[QueryResultMaxCount];
 
         // Pin managed object memory going to native code
@@ -88,10 +84,8 @@ public class ScanManager : MonoBehaviour, IInputClickHandler
         // Find the half dimensions of "Sittable" objects via the DLL
         int shapeCount = SpatialUnderstandingDllShapes.QueryShape_FindShapeHalfDims("Placeable", resultsShape.Length, resultsShapePtr);
 
-        // Process found results.
         for (int i = 0; i < shapeCount; i++)
         {
-            // Create a Beacon at each "Placeable" location.
             Instantiate(PlaceablePrefab, resultsShape[i].position, Quaternion.identity);
         }
     }
