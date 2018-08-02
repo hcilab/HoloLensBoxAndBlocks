@@ -13,7 +13,12 @@ public class CollisionManager : MonoBehaviour {
         hand = GameObject.Find("ar_hand");
         pickUpManager = GetComponent<PickUpManager>();
     }
-
+    /// <summary>
+    /// Checks to see if the other collider that comes in contact with this trigger is either tagged with 
+    /// "finger" or "thumb" and set a bool from PickUpManager accordingly. It also checks to see if the 
+    /// pickup is in contact with a wall while it is picked up, if these conditions are met the cube is 
+    /// dropped.
+    /// </summary>
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "finger")
@@ -30,7 +35,10 @@ public class CollisionManager : MonoBehaviour {
             pickUpManager.touchingThumb = false;
         }
     }
-
+    /// <summary>
+    /// Checks to see if the other collider is tagged with "finger" or "thumb" when no longer in contact,
+    /// if so, the cube is dropped.
+    /// </summary>
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "finger")
