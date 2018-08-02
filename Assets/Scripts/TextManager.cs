@@ -166,7 +166,7 @@ public class TextManager : MonoBehaviour {
             instantiator = GameObject.Find("Instantiators");
             viveAxes.SetActive(true);
             controllerVive.SetActive(true);
-            controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.5f * boxBlocks.transform.forward;
+            controllerVive.transform.position = boxBlocks.transform.position + new Vector3(0, 0.25f, 0) + -0.15f * boxBlocks.transform.forward;
             if (rightHand)
             {
                 controllerVive.transform.localScale = new Vector3(1, 1, 1);
