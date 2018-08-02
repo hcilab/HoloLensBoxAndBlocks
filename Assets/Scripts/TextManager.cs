@@ -36,12 +36,18 @@ public class TextManager : MonoBehaviour {
 
 
     // Use this for initialization
+    /// <summary>
+    /// 
+    /// </summary>
     void Start () {
         gameState = GameState.StartMenu;
         spatialMappingManager = spatialMapping.GetComponent<SpatialMappingManager>();
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// 
+    /// </summary>
     void Update () {
         switch (gameState)
         {
@@ -125,6 +131,9 @@ public class TextManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void ScanText()
     {
         switch (SpatialUnderstanding.Instance.ScanState)
@@ -143,6 +152,9 @@ public class TextManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void EnableObjectsForTest()
     {
         if(GameObject.Find("BoxAndBlocks(Clone)") != null)
@@ -167,6 +179,9 @@ public class TextManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void StartMapping()
     {
         spatialMapping.SetActive(true);
@@ -176,4 +191,7 @@ public class TextManager : MonoBehaviour {
     }
 }
 
+/// <summary>
+/// 
+/// </summary>
 public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, AlignArm, ArmAligned, TimerStarted, TimerEnded, Restart}; 
