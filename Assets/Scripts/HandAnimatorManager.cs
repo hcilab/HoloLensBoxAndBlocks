@@ -24,7 +24,10 @@ public class HandAnimatorManager : MonoBehaviour {
         textManagerScript = textManager.GetComponent<TextManager>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// called at a consistent rate. Checks to see which hand is selected, and updates myoRight
+    /// and myoLeft by reaing leftReading and rightReading from MyoReaderClient script.
+    /// </summary>
     private void FixedUpdate()
     {
         if (textManagerScript.rightHand)
@@ -39,6 +42,10 @@ public class HandAnimatorManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// called once per frame. Compares myoleft and myoRight and sets the animation speed to either open
+    /// or closed based on what the values are.
+    /// </summary>
     void Update () {
 
         if (myoLeft > myoRight)
@@ -59,6 +66,9 @@ public class HandAnimatorManager : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Opens the hand, and stops the animation time from continuing once fully open.
+    /// </summary>
     void HandOpen()
     {
         if (handAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0f)
@@ -73,6 +83,9 @@ public class HandAnimatorManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Closes the hand, and stops the animation time from continuing once fully closed.
+    /// </summary>
     void HandClose()
     {
         if (handAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f && !isAttached)
@@ -87,6 +100,9 @@ public class HandAnimatorManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// pauses the animation of the hand.
+    /// </summary>
     void HandRest()
     {
         handAnimator.speed = 0f;
