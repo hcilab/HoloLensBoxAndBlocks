@@ -11,12 +11,18 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
     TextManager textManager;
 
     // Use this for initialization
+    /// <summary>
+    /// 
+    /// </summary>
     void Start()
     {
         TextManagerObject = GameObject.Find("TextManager");
         textManager = TextManagerObject.GetComponent<TextManager>();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void OnInputClicked(InputClickedEventData eventData)
     {
         float yCamRot = Camera.main.transform.eulerAngles.y;
@@ -26,6 +32,9 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
         DestroyAllPlaceableMarkers();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void DestroyAllPlaceableMarkers()
     {
         GameObject[] placeables = GameObject.FindGameObjectsWithTag("placeable");
