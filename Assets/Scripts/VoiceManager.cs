@@ -20,7 +20,7 @@ public class VoiceManager : MonoBehaviour {
 
     // Use this for initialization
     /// <summary>
-    /// 
+    /// define all the keywords to look out for.
     /// </summary>
 	void Start () {
 
@@ -81,7 +81,7 @@ public class VoiceManager : MonoBehaviour {
 	}
 
     /// <summary>
-    /// 
+    /// if the keyword recognized is in our dictionary, call that Action
     /// </summary>
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
