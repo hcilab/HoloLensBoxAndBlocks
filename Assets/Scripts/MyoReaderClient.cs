@@ -110,16 +110,14 @@ public class MyoReaderClient : MonoBehaviour {
         byte[] bytes = new byte[socketClient.ReceiveBufferSize];
         NetworkStream stream = socketClient.GetStream();
         data = stream.Read(bytes, 0, socketClient.ReceiveBufferSize);
-        //string dataString = Encoding.UTF8.GetString(bytes, 0, data);
-        //return dataString;
         returnedString = Encoding.UTF8.GetString(bytes, 0, data);
     }
 #else
-    private async void ListenForDataUWP()
+    private void ListenForDataUWP()
     {
         try
         {
-            returnedString = await reader.ReadLineAsync();
+            returnedString = reader.ReadLineAsync();
             //string dataString = reader.ReadLine();
             //return dataString;
         }
