@@ -83,6 +83,8 @@ public class TextManager : MonoBehaviour {
                 EnableObjectsForTest();
                 break;
             case GameState.AlignArm:
+                // Arm is aligned, waits for either voice input or keyboard and game state will be updated by either
+                // OffsetFix.cs or VoiceManager.cs
 #if !UNITY_EDITOR
                 InstructionTextMesh.text = "align controller with hologram and say 'align'";
 #else
