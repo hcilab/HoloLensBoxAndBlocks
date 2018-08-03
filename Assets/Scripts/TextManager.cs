@@ -35,23 +35,22 @@ public class TextManager : MonoBehaviour {
     private int numBlocks;
 
 
-    // Use this for initialization
     /// <summary>
-    /// 
+    /// initialize the game state
     /// </summary>
     void Start () {
         gameState = GameState.StartMenu;
         spatialMappingManager = spatialMapping.GetComponent<SpatialMappingManager>();
     }
 
-    // Update is called once per frame
     /// <summary>
-    /// 
+    /// check which game state the game is in and execute code specific to the game state.
     /// </summary>
     void Update () {
         switch (gameState)
         {
             case GameState.StartMenu:
+                // Wait for user to select a hand. Once selected, start mapping the room
 #if !UNITY_EDITOR
                 InstructionTextMesh.text = "Welcome to HoloLens Prosthesis Trainer!\nPlease select which arm the prosthesis is on.\n(say 'left' or 'right')";
 #else
@@ -69,12 +68,16 @@ public class TextManager : MonoBehaviour {
                 }
                 break;
             case GameState.RoomScan:
+                // Call ScanText() while room is being scanned.
                 ScanText();
                 break;
             case GameState.DoneScan:
+                // Scan is complete, game state will be updated in TapAndPlace.cs
                 InstructionTextMesh.text = "Scan done.\nSelect a sphere to place box and blocks test.";
                 break;
             case GameState.BoxPlaced:
+                // Box and blocks has been placed. Stop spatial mapping from updating the mesh of the room. 
+                // disable spatial understanding to get rid of the mesh of the scanned room.
                 SpatialMappingManager.Instance.StopObserver();
                 spatialUnderstanding.SetActive(false);
                 EnableObjectsForTest();
@@ -132,7 +135,8 @@ public class TextManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// 
+    /// When the room is being scanned, it checks which state of scanning it is in and displays text
+    /// accordingly. When the scan is over, the game state is updated to DoneScan.
     /// </summary>
     private void ScanText()
     {
@@ -156,7 +160,8 @@ public class TextManager : MonoBehaviour {
     /// If the box and blocks prefab has been instantiated, the vive axis game object is activated 
     /// as well as the vr_controller_vive_1_5 game object. It also places the controller and hand 
     /// above the box and blocks set up. Depending on which hand is selected the scale of the 
-    /// vr_controller_vive_1_5 is adjusted to match the chosen hand. The V
+    /// vr_controller_vive_1_5 is adjusted to match the chosen hand. When this method is called 
+    /// the game state is updated to the AlignArm state.
     /// </summary>
     private void EnableObjectsForTest()
     {
@@ -176,7 +181,6 @@ public class TextManager : MonoBehaviour {
             {
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
             }
-
             gameState = GameState.AlignArm;
         }
     }
