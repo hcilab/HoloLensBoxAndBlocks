@@ -92,6 +92,8 @@ public class TextManager : MonoBehaviour {
 #endif
                 break;
             case GameState.ArmAligned:
+                // wait until timer is started. Game state updated when s pressed, or by VoiceManager.cs when
+                // user says 'start'
 #if !UNITY_EDITOR
                 InstructionTextMesh.text = "When ready, say 'start' to start test.\nYou have 60 seconds.";
 #else
@@ -103,6 +105,7 @@ public class TextManager : MonoBehaviour {
                 }
                 break;
             case GameState.TimerStarted:
+                // counts down until test time is up. When time is up advance to next game state.
                 if (countTime > 0)
                 {
                     countTime -= Time.deltaTime;
@@ -117,6 +120,9 @@ public class TextManager : MonoBehaviour {
                 }
                 break;
             case GameState.TimerEnded:
+                // displays text for when the timer is up. Shows how many blocks had been successfully transferred. 
+                // waits for user to either restart the test or exit the game. If restarted, resets all the prefabs 
+                // and changed back to ArmAlign state.
 #if !UNITY_EDITOR
                 InstructionTextMesh.text = "Time's up! You successfully moved " + numBlocks + " blocks.\n Would you like to try again?\n(say 'again' to try again, or do the bloom gesture to end the game.)";
 #else
