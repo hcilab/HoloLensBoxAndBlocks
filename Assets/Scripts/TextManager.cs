@@ -153,7 +153,10 @@ public class TextManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// 
+    /// If the box and blocks prefab has been instantiated, the vive axis game object is activated 
+    /// as well as the vr_controller_vive_1_5 game object. It also places the controller and hand 
+    /// above the box and blocks set up. Depending on which hand is selected the scale of the 
+    /// vr_controller_vive_1_5 is adjusted to match the chosen hand. The V
     /// </summary>
     private void EnableObjectsForTest()
     {
@@ -174,13 +177,14 @@ public class TextManager : MonoBehaviour {
                 controllerVive.transform.rotation = Quaternion.Euler(0, boxBlocks.transform.rotation.eulerAngles.y, 0);
             }
 
-            voiceInput.SetActive(true);
             gameState = GameState.AlignArm;
         }
     }
 
     /// <summary>
-    /// 
+    /// This method activates the spatial mapping and spatial understanding gameobjects (from
+    /// the HoloToolkit asset) as well as the MappingOrchestrator game object. When this method is
+    /// called the game state is updated to RoomScan.
     /// </summary>
     private void StartMapping()
     {
@@ -192,6 +196,8 @@ public class TextManager : MonoBehaviour {
 }
 
 /// <summary>
-/// 
+/// This enum is used to keep track of the state of the game, the 9 different game states are 
+/// updated on certain conditions being met within this script as well as other scripts that 
+/// reference this script.
 /// </summary>
 public enum GameState {StartMenu, RoomScan, DoneScan, BoxPlaced, AlignArm, ArmAligned, TimerStarted, TimerEnded, Restart}; 
