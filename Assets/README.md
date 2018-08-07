@@ -37,7 +37,10 @@ Is the prefab of the vive controller model and is used to align the real vive co
 ### vr_male_hand_left.prefab
 
 Is a duplicate of ar_hand. is not used in the game.
+
 ## Scripts
+
+![List of scripts in editor](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/ScriptList.PNG)
 
 Please see individual scripts for more detailed description of the function and subsequent methods.
 
