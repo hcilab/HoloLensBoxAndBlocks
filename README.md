@@ -1,7 +1,7 @@
 # HoloLensBoxAndBlocks
 
 A Unity project that uses an HTC Vive controller, a Thalmic Labs Myo Armband, and a Microsoft HoloLens to emulate the Box and Blocks test for training of upper limb myoelectric prostheses. 
-
+![photo of set up](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/20180807_144659_HoloLens.jpg)
 ## Overview/Description
 
 The purpose of this project was to create a virtual training environment for upper limb amputees to train the control of myoelectric postheses. A common training exercise for upper limb amputees is the box and blocks test, in which trainees move as many small cubes as they can in a minute over a partition. (Click [here](https://www.youtube.com/watch?v=aow02xRai8U) to see a video of Box And Blocks Test.)
