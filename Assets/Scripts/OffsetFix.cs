@@ -60,7 +60,6 @@ public class OffsetFix : MonoBehaviour
 #endif
         TextManagerObject = GameObject.Find("TextManager");
         textManager = TextManagerObject.GetComponent<TextManager>();
-
     }
 
     /// <summary>
