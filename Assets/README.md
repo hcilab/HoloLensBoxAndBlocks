@@ -4,7 +4,7 @@ In this file I briefly explain the purpose and function of each of the prefabs a
 
 ## Prefabs
 
-![List of Prefabs in editor](HoloLensBoxAndBlocks/Images/PrefabList_2.png)
+![List of Prefabs in editor](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/PrefabList_2.PNG)
 
 ### ar_hand.prefab
 
