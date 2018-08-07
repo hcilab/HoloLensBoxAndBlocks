@@ -74,6 +74,7 @@ Running the project in Unity is useful because it is fast and great for testing,
     * on the HoloLens run *Holographic Remoting Player*
     * in Unity editor select the `Windows` tab and go to `Windows > Holographic Emulation > Emulation Mode > Remote to Device` and enter the HoloLens' IP address then press `connect`
 1. make sure both TCP socket server programs are running and streaming data (*Momo* and `ControllerDataUnity.py`).
+    * For the controller data, open a command line and make sure you are in the *triad_openvr* directory, type `python ControllerDataUnity.py` and press 'enter'
     * in *Momo* must change a boolean variable to `false` so program knows will be streaming to Unity editor
     * ![Momo boolean variable for Unity editor](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/InkedMomoBoolean.jpg)
 1. press play button in Unity editor 
