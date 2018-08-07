@@ -76,8 +76,7 @@ Running the project in Unity is useful because it is fast and great for testing,
 1. make sure both TCP socket server programs are running and streaming data (*Momo* and `ControllerDataUnity.py`).
     * For the controller data, open a command line and make sure you are in the *triad_openvr* directory, type `python ControllerDataUnity.py` and press 'enter'
     * This is what you should see ![command line example](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/CMDlineConnected2.PNG)
-    * in *Momo* must change a boolean variable to `false` so program knows will be streaming to Unity editor
-    * ![Momo boolean variable for Unity editor](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/InkedMomoBoolean.jpg)
+    * in `Momo.pde` you must change a boolean variable to `false` so program knows will be streaming to Unity editor ![Momo boolean variable for Unity editor](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/InkedMomoBoolean.jpg)
 1. press play button in Unity editor 
 
 ### Deploying and Running as UWP app on HoloLens
@@ -91,8 +90,9 @@ Deploying the project to the HoloLens is useful because the graphics are much be
     * under **Scenes In Build** click `Add Open Scenens` and make sure *HoloViveController* is the only scene selected
     * select `build` and once the visual studio solution is created run it. Once the app is successfully deployed to the HoloLens the app persists on the HoloLens and can be ran as any other HoloLens app.
     * more detailed build documentation [here](https://docs.microsoft.com/en-us/windows/mixed-reality/exporting-and-building-a-unity-visual-studio-solution) and deployment documentation [here](https://docs.microsoft.com/en-us/windows/mixed-reality/using-visual-studio).
-1. ensure both TCP socket server programs are running and streaming data (*Momo* and `UWPScriptName`).
-    * in *Momo* must change a boolean variable to `true` so program knows will be streaming to HoloLens
+1. ensure both TCP socket server programs are running and streaming data (*Momo* and `ControllerDataUWP.py`).
+    * follow same steps for running the python script except this time type `python ControllerDataUWP.py`
+    * in `Momo.pde` must change the same boolean variable to `true` so program knows will be streaming to HoloLens
 1. select *HoloLensClientTest* app on HoloLens
 
 ## Useful Websites/Forums/Pages
