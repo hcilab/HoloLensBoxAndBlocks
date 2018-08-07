@@ -4,6 +4,8 @@ In this file I briefly explain the purpose and function of each of the prefabs a
 
 ## Prefabs
 
+![List of Prefabs in editor](Images/PrefabList_2.png)
+
 ### ar_hand.prefab
 
 Is the model of the hand that is tracked my the vive controller and used to pick-up blocks
