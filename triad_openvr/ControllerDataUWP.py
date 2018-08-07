@@ -37,9 +37,7 @@ conn, addr = s.accept()
 print('connected to: '+addr[0]+':'+str(addr[1]))
 
 msg = ''
-# conn.sendall(str.encode('-1.4556;'))
-# conn.close()
-#contiuoulsy display controller coordinates, based on interval    
+
 if interval:
     while(True):
         start = time.time()
