@@ -48,17 +48,10 @@ This section covers the different steps to install and setup all the required ha
     * make sure when installing Unity to include `Windows Store .NET Scripting Backend`
     * make sure when installing Visual Studio to select both the **Universal Windows Platform development** and **Game Development with Unity** workloads
     * [installation checklist](https://docs.microsoft.com/en-us/windows/mixed-reality/install-the-tools) from microsoft
-1. Install Mixed Reality Toolkit to Unity. Documentation and download [here](https://github.com/Microsoft/MixedRealityToolkit-Unity). (project should come with this already, so likely will not need to do this step)
 1. Install Steam and Steam VR. Then install Vive setup [software](https://www.vive.com/eu/) (click `Setup | Download`)
-    * go through set up with just the base stations and vive
+    * go through set up with just the base stations and vive controller or tracker
 1. Set up Vive controller (or tracker) without headset in Steam VR. Setup guide [here](https://www.roadtovr.com/how-to-use-the-htc-vive-tracker-without-a-vive-headset/) and [here](http://www.pencilsquaregames.com/getting-steamvr-tracking-data-in-unity-without-a-hmd/) or see `Vive Controller Unity set-up.pdf`.
-1. Set up python TCP socket server script to send tracking data from Vive controller:
-    * make sure `ScriptName` is in the same directory as the `triad_openvr` library
-    * to run from command line, make sure python 3.6 is enabled, `cd` to directory with `ScriptName` and type:
-```
-python ScriptName
-```
-7. Set up Momo to send Myo armband data via TCP socket:
+1. Set up Momo to send Myo armband data via TCP socket:
     * download or clone [this](https://github.com/hcilab/Momo) github repository. Make sure you use the *calibrateAndStream* branch.
     * set up steps are provided in the Momo repository.
     * you will need to install processing libraries to be able to run the project
@@ -80,8 +73,9 @@ Running the project in Unity is useful because it is fast and great for testing,
 1. enter holographic remoting:
     * on the HoloLens run *Holographic Remoting Player*
     * in Unity editor select the `Windows` tab and go to `Windows > Holographic Emulation > Emulation Mode > Remote to Device` and enter the HoloLens' IP address then press `connect`
-1. make sure both TCP socket server programs are running and streaming data (*Momo* and `UnityScriptName`).
+1. make sure both TCP socket server programs are running and streaming data (*Momo* and `ControllerDataUnity.py`).
     * in *Momo* must change a boolean variable to `false` so program knows will be streaming to Unity editor
+    * ![Momo boolean variable for Unity editor]()
 1. press play button in Unity editor 
 
 ### Deploying and Running as UWP app on HoloLens
