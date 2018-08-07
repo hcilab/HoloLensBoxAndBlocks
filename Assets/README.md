@@ -42,7 +42,7 @@ Is a duplicate of ar_hand. is not used in the game.
 
 ![List of scripts in editor](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/ScriptList.PNG)
 
-Please see individual scripts for more detailed description of the function and subsequent methods.
+**NOTE**: Please see individual scripts for more detailed description of the function and subsequent methods.
 
 ### BoxCounter.cs
 

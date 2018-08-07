@@ -48,7 +48,7 @@ This section covers the different steps to install and setup all the required ha
     * make sure when installing Unity to include `Windows Store .NET Scripting Backend`
     * make sure when installing Visual Studio to select both the **Universal Windows Platform development** and **Game Development with Unity** workloads
     * [installation checklist](https://docs.microsoft.com/en-us/windows/mixed-reality/install-the-tools) from microsoft
-1. Install Mixed Reality Toolkit to Unity. Documentation and download [here](https://github.com/Microsoft/MixedRealityToolkit-Unity).
+1. Install Mixed Reality Toolkit to Unity. Documentation and download [here](https://github.com/Microsoft/MixedRealityToolkit-Unity). (project should come with this already, so likely will not need to do this step)
 1. Install Steam and Steam VR. Then install Vive setup [software](https://www.vive.com/eu/) (click `Setup | Download`)
     * go through set up with just the base stations and vive
 1. Set up Vive controller (or tracker) without headset in Steam VR. Setup guide [here](https://www.roadtovr.com/how-to-use-the-htc-vive-tracker-without-a-vive-headset/) and [here](http://www.pencilsquaregames.com/getting-steamvr-tracking-data-in-unity-without-a-hmd/) or see `Vive Controller Unity set-up.pdf`.
