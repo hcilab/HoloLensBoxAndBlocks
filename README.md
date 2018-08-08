@@ -30,7 +30,7 @@ This project uses the following software:
 
 * Windows 10 (cannot be any version with `N`)
 * Unity
-* [Mixed Reality Toolkit](https://github.com/Microsoft/MixedRealityToolkit-Unity)(included in this repository)
+* [Mixed Reality Toolkit](https://github.com/Microsoft/MixedRealityToolkit-Unity) (included in this repository)
 * Visual Studios 2017
 * [Processing](https://processing.org/download/) 
 * [The Falling Of Momo](https://github.com/hcilab/Momo) (*calibrateAndStream* branch)
