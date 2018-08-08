@@ -30,14 +30,14 @@ This project uses the following software:
 
 * Windows 10 (cannot be any version with `N`)
 * Unity
-* [Mixed Reality Toolkit](https://github.com/Microsoft/MixedRealityToolkit-Unity)
+* [Mixed Reality Toolkit](https://github.com/Microsoft/MixedRealityToolkit-Unity)(included in this repository)
 * Visual Studios 2017
 * [Processing](https://processing.org/download/) 
 * [The Falling Of Momo](https://github.com/hcilab/Momo) (*calibrateAndStream* branch)
 * SteamVR with opt in for the Beta (see step 3 below)
 * Python 3.6 (see step 3 below)
 * pyopenvr (see step 3 below)
-* triad_openvr (see step 3 below)
+* triad_openvr (see step 3 below/included in this repository)
 
 ### Setting Up & Installing
 
