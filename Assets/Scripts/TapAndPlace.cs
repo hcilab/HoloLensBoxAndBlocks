@@ -22,7 +22,8 @@ public class TapAndPlace : MonoBehaviour, IInputClickHandler
 
     /// <summary>
     /// is called when user performs the tap gesture on the sphere. Finds the rotation of the gaze about the y axis
-    /// to be able to instantiate the box and blocks set up so that it is facing the user. 
+    /// to be able to instantiate the box and blocks set up so that it is facing the user. Updates the global game 
+    /// state from DoneScan to BoxPlaced.
     /// </summary>
     public void OnInputClicked(InputClickedEventData eventData)
     {
