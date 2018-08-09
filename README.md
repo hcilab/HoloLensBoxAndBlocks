@@ -66,7 +66,7 @@ For detailed descriptions of all prefabs and scripts in this project, please ref
 The project can be played either from the Unity Editor or deployed to the HoloLens as a UWP app. Each require slightly different steps and setup.
 
 ### Running the Project in Unity
-
+![running from Unity](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/20180803_112557_HoloLens.jpg)
 Running the project in Unity is useful because it is fast and great for testing, editing, and debugging. On the downside, rendering quality is greatly reduced and thus is not ideal for implementing or running actual experiments. Here are the following steps to properly run from the Unity editor:
 
 1. ensure that the HoloLens and the computer running Unity are both connected to the same wifi network. (if computer connected via ethernet, create a **mobile hotspot** in windows `settings`)
@@ -80,7 +80,7 @@ Running the project in Unity is useful because it is fast and great for testing,
 1. press play button in Unity editor 
 
 ### Deploying and Running as UWP app on HoloLens
-
+![running as UWP](https://github.com/hcilab/HoloLensBoxAndBlocks/blob/master/Images/20180807_144340_HoloLens.jpg)
 Deploying the project to the HoloLens is useful because the graphics are much better and is great for running actual experiments. On the downside, deployment takes a few minutes thus making it to slow for debugging or testing. Here are the following steps to properly deploy and run the project as a UWP app on the HoloLens:
 
 1. ensure that the HoloLens and the computer running Unity are both connected to the same wifi network.
