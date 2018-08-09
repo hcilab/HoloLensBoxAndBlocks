@@ -86,7 +86,7 @@ This script is attached to the `MappingOrchestrator` game object. It scans the r
 
 ### TapAndPlace.cs
 
-This script is attached to the `Sphere` game object which is a child of the `PlaceableMarker` prefab. If the gaze icon in on the sphere and the user does the 'click' gesture, all placeable markers will be deleted and the `BoxAndBlocks` prefab will spawn at the selected marker.
+This script is attached to the `Sphere` game object which is a child of the `PlaceableMarker` prefab. If the gaze icon is on the sphere and the user does the 'click' gesture, all placeable markers will be deleted and the `BoxAndBlocks` prefab will spawn at the selected marker. Once this happens, the game state is updated from DoneScan to BoxPlaced.
 
 ### TextManager.cs
 
@@ -98,4 +98,4 @@ not used for anything, should delete.
 
 ### VoiceManager.cs
 
-This script is attached to the `VoiceInput` game object. It takes voice input and checks to see if there are any matches with pre-defined keywords. If there is a match and it occurs during the proper game state, certain actions will take place.
+This script is attached to the `VoiceInput` game object. It takes voice input and checks to see if there are any matches with pre-defined keywords. If there is a match and it occurs during the proper game state, certain actions will take place. Based on what is said and depending on which game state the game is currently in, the game state will be updated to the next appropriate game state.
