@@ -16,7 +16,7 @@ public class HideControllerAfterAlign : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown("space"))
         {
-            mesh.enabled = false;
+            //mesh.enabled = false;
         }
 	}
 }

@@ -92,12 +92,12 @@ public class OffsetFix : MonoBehaviour
 
             if (textManager.rightHand)
             {
-                transform.localRotation = controllerQuat * Quaternion.Euler(0, 180, 0);
+                transform.localRotation = controllerQuat * Quaternion.Euler(0, 180, 180);
             }
 
             else
             {
-                transform.localRotation = controllerQuat;
+                transform.localRotation = controllerQuat * Quaternion.Euler(0,0,180);
             }
         }
     }
