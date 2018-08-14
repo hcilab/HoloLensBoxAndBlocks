@@ -131,7 +131,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Dr. Erik Scheme, for being my co-supervisor
-* Dr. Scott Bateman, for being my co-supervisor and helping me with unity and TCP communication
+* Dr. Scott Bateman, for being my co-supervisor and helping me with many software issues
+* [NSERC USRA](http://www.nserc-crsng.gc.ca/Students-Etudiants/UG-PC/USRA-BRPC_eng.asp) for funding a majority of my research
 * [HCI Lab](https://hci.cs.unb.ca/) members, for help with software development, unity, and other technical issues
 * [IBME](http://www.unb.ca/research/institutes/biomedical/) staff, faculty, and students for help with technical problems
 * developers whose code I used / learned from, here are a few:
