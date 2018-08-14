@@ -109,7 +109,8 @@ here is a list of websites that I found very helpful for development:
 
 Here are a few things that I struggled with and came up often. see below for potential solutions or work-arounds.
 
-* TCP communication, the namespace used for TCP socket communication
+* TCP communication, the namespace used for TCP socket communication in unity doesn't work for a project build for UWP, and vice versa
+* if no icons show up in steam VR just go back into the steam settings directory outlined in step 4 of setting up & installing.
 
 ## Future Work
 
