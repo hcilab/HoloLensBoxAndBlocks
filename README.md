@@ -97,7 +97,13 @@ Deploying the project to the HoloLens is useful because the graphics are much be
 
 ## Useful Websites/Forums/Pages
 
-here is a list of websites that I found very helpful for development
+here is a list of websites that I found very helpful for development:
+
+* Windows Mixed Reality [documentation](https://docs.microsoft.com/en-us/windows/mixed-reality/)
+* Unity [documentation](https://docs.unity3d.com/Manual/wmr_sdk_overview.html) for windows mixed reality
+* Mixed Reality Toolkit GitHub [Repo](https://github.com/Microsoft/MixedRealityToolkit-Unity)
+* Microsoft [Magazine](https://msdn.microsoft.com/en-us/magazine/), search 'HoloLens' or 'mixed reality' to find helpful articles
+* Unity [forum](https://forum.unity.com/forums/windows-mixed-reality.102/) for mixed reality
 
 ## Common Problems/Issues
 
@@ -107,15 +113,16 @@ Here are a few things that I struggled with and came up often. see below for pot
 
 In this section I will outline additions that could (and should) be made to the project. I will also outline aspects of this project that could use some improvements and where this project can go if picked up by another developer.
 
-* adding more functionality to the hand, use the third number sent from *Momo* when a fist is made
-* improving the pick up functionality to make it more realistic
+* adding more functionality to the hand, use the third number sent from *Momo* (when a fist is made) to change what the virtual prosthesis does
+* improving the pick up functionality to make it more realistic, change the collider physics as well as add haptic feedback to the controller or armband
 * add something so that cannot pick up if hand is inside a wall
+* improve the UI so that rather than using voice commands, user can select options from a window
+* improve the game flow so that user can go back to start menu and change arms in the same game, also keep track of scores etc.
+* adding other tests to the game, so that box and blocks is only one of the options
 
 ## Authors
 
-* **Name** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Wesley Finck** - *overall project* - [WFinck97](https://github.com/WFinck97)
 
 ## License
 
@@ -123,8 +130,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* developers whose code I used / learned from
-* HCI lab members and IBME staff students and faculty
-* etc
+* Dr. Erik Scheme, for being my co-supervisor
+* Dr. Scott Bateman, for being my co-supervisor and helping me with unity and TCP communication
+* [HCI Lab](https://hci.cs.unb.ca/) members, for help with software development, unity, and other technical issues
+* [IBME](http://www.unb.ca/research/institutes/biomedical/) staff, faculty, and students for help with technical problems
+* developers whose code I used / learned from, here are a few:
+    * helpful [blog](https://foxypanda.me/tcp-client-in-a-uwp-unity-app-on-hololens/), and his [github](https://github.com/TimboKZ)
+    * helpful [blog](https://medium.com/southworks/how-to-use-spatial-understanding-to-query-your-room-with-hololens-4a6192831a6f) and his [github](https://github.com/sGambolati/SpatialDemo)
+* and all other unnamed developers who shared much of their work online, helping me get through many hurdles were it not for their open source code and advice
