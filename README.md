@@ -52,7 +52,7 @@ This section covers the different steps to install and setup all the required ha
     * go through set up with just the base stations and vive controller or tracker
 1. Set up Vive controller (or tracker) without headset in Steam VR. Setup guide [here](https://www.roadtovr.com/how-to-use-the-htc-vive-tracker-without-a-vive-headset/) and [here](http://www.pencilsquaregames.com/getting-steamvr-tracking-data-in-unity-without-a-hmd/) or see `Vive Controller Unity set-up.pdf`.
 1. Set up Momo to send Myo armband data via TCP socket:
-    * download or clone [this](https://github.com/hcilab/Momo) github repository. Make sure you use the *calibrateAndStream* branch.
+    * download or clone [this](https://github.com/hcilab/Momo/tree/calibrateAndStream) github repository. Make sure you use the *calibrateAndStream* branch.
     * set up steps are provided in the Momo repository.
 
 ### Important Note
