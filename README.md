@@ -54,8 +54,6 @@ This section covers the different steps to install and setup all the required ha
 1. Set up Momo to send Myo armband data via TCP socket:
     * download or clone [this](https://github.com/hcilab/Momo) github repository. Make sure you use the *calibrateAndStream* branch.
     * set up steps are provided in the Momo repository.
-    * you will need to install processing libraries to be able to run the project
-        * these are the libraries that you need and this is how to install them
 
 ### Important Note
 
@@ -109,8 +107,10 @@ here is a list of websites that I found very helpful for development:
 
 Here are a few things that I struggled with and came up often. see below for potential solutions or work-arounds.
 
-* TCP communication, the namespace used for TCP socket communication in unity doesn't work for a project build for UWP, and vice versa
+* TCP communication, the namespace used for TCP socket communication in unity doesn't work for a project build for UWP, and vice versa. I found this blog [page](https://foxypanda.me/tcp-client-in-a-uwp-unity-app-on-hololens/) really helpful.
 * if no icons show up in steam VR just go back into the steam settings directory outlined in step 4 of setting up & installing. Sometimes steamVR updates and resets those settings.
+* Make sure the HoloLens is connected to the same network as the computer.
+* Holographic remoting from Unity to HoloLens: make sure on the HoloLens you have downloaded and selected the [Holographic Remoting Player](https://www.microsoft.com/en-ca/p/holographic-remoting-player/9nblggh4sv40) app.
 
 ## Future Work
 
@@ -119,13 +119,15 @@ In this section I will outline additions that could (and should) be made to the 
 * adding more functionality to the hand, use the third number sent from *Momo* (when a fist is made) to change what the virtual prosthesis does
 * improving the pick up functionality to make it more realistic, change the collider physics as well as add haptic feedback to the controller or armband
 * add something so that cannot pick up if hand is inside a wall
-* improve the UI so that rather than using voice commands, user can select options from a window
-* improve the game flow so that user can go back to start menu and change arms in the same game, also keep track of scores etc.
+* improve the UI so that in addition to using voice commands the user can select options from a window using gaze and air tap
+* improve the game flow so that user can go back to start menu and change arms in the same game or recalibrate arm,. Also keep track of scores etc.
 * adding other tests to the game, so that box and blocks is only one of the options
+* allow user to make slight adjustments to the virtual limb to closer represent where an actual prosthesis would be
 
 ## Authors
 
 * **Wesley Finck** - *overall project* - [WFinck97](https://github.com/WFinck97)
+* **Aaron Tabor** - *The Falling of Momo* - [aarontabor](https://github.com/aarontabor)
 
 ## License
 
