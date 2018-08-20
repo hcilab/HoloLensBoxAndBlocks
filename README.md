@@ -135,8 +135,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* [Dr. Erik Scheme](http://www.unb.ca/faculty-staff/directory/engineering-electrical-and-computer/scheme-erik.html), for being my co-supervisor
-* [Dr. Scott Bateman](https://www.cs.unb.ca/people/scottb), for being my co-supervisor and helping me with many software issues
+* [Dr. Erik Scheme](http://www.unb.ca/faculty-staff/directory/engineering-electrical-and-computer/scheme-erik.html), for being my co-supervisor and helping me with the biomedical engineering parts of the project
+* [Dr. Scott Bateman](https://www.cs.unb.ca/people/scottb), for being my co-supervisor and helping me with the human-computer interaction parts of the project
 * [NSERC USRA](http://www.nserc-crsng.gc.ca/Students-Etudiants/UG-PC/USRA-BRPC_eng.asp) for funding a majority of my research
 * [HCI Lab](https://hci.cs.unb.ca/) members, for help with software development, unity, and other technical issues
 * [IBME](http://www.unb.ca/research/institutes/biomedical/) staff, faculty, and students for help with technical problems
